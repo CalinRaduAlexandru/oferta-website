@@ -49,7 +49,7 @@
       .hero__intro::after { display: block; width: 8rem; height: .35rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
       .hero__visual { position: relative; z-index: 1; display: block; width: min(calc(100% + 2rem), 34rem); max-width: none; min-height: 0; margin: .6rem -1rem -1rem; border: 0; background: transparent; object-fit: contain; }
       .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
-      .problem { --section-color: #91b8ac; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .problem { --section-color: #91b8ac; position: relative; overflow: hidden; padding: 3rem 1.35rem calc(4rem + 24px); background: var(--cream); }
       .problem__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .problem__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .problem__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--section-color); font-size: 1.25rem; letter-spacing: 0; }
@@ -70,7 +70,7 @@
       .problem__callout h3 { max-width: 19rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.55rem; line-height: 1.08; }
       .problem__callout p { max-width: 19rem; margin: .1rem 0 0; font-size: 1rem; line-height: 1.4; }
       .problem__callout em { display: block; margin-top: .55rem; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.3rem; line-height: 1.25; }
-      .offer { --section-color: #edc86a; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .offer { --section-color: #edc86a; position: relative; overflow: hidden; padding: 3rem 1.35rem calc(4rem + 24px); background: var(--cream); }
       .offer__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .offer__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .offer__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--section-color); font-size: 1.25rem; letter-spacing: 0; }
@@ -91,7 +91,7 @@
       .offer__closing img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .offer__closing p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; line-height: 1.15; }
       .offer__closing strong { color: #6c9f91; }
-      .pricing { --section-color: #a998c9; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .pricing { --section-color: #a998c9; position: relative; overflow: hidden; padding: 3rem 1.35rem calc(4rem + 24px); background: var(--cream); }
       .pricing__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .pricing__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .pricing__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--section-color); font-size: 1.25rem; letter-spacing: 0; }
@@ -133,11 +133,12 @@
       .aftercare__item p { margin: 0; font-size: 1rem; line-height: 1.4; }
       .booking { display: grid; gap: 1rem; margin-top: 2rem; padding: 1.5rem; border: 1px solid #d5c7dc; border-radius: 1.75rem; background: #f5eff5; }
       .booking img { width: 4.5rem; height: 4.5rem; object-fit: contain; }
+      .booking > img:first-child { justify-self: center; width: 5.5rem; height: 5.5rem; }
       .booking h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; }
       .booking p { margin: 0; font-size: 1.05rem; line-height: 1.45; }
       .booking strong { color: var(--coral); font-size: 1.25rem; }
-      .booking__mockup { display: block; width: calc(100% + 1rem); max-width: none; min-height: 0; margin: .25rem -.5rem -.5rem; object-fit: contain; }
-      .control { --section-color: #e78970; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .booking .booking__mockup { display: block; width: calc(100% + 1rem); max-width: none; height: auto; min-height: 0; margin: .25rem -.5rem -.5rem; object-fit: contain; }
+      .control { --section-color: #e78970; position: relative; overflow: hidden; padding: 3rem 1.35rem calc(4rem + 24px); background: var(--cream); }
       .control__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .control__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .control__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--section-color); font-size: 1.25rem; letter-spacing: 0; }
@@ -210,7 +211,7 @@
         .hero__visual { justify-self: center; width: min(100%, 36rem); min-height: 0; margin: 0; }
         .hero__heart { top: 12%; right: 6%; width: 6rem; height: 6rem; }
         .hero__leaf { width: 16rem; height: 16rem; }
-        .problem { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
+        .problem { padding: 5rem clamp(3rem, 8vw, 8rem) calc(6rem + 24px); }
         .problem__topline { margin-bottom: 4rem; font-size: .88rem; }
         .problem__topline img { width: 4rem; height: 4rem; }
         .problem__layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(24rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
@@ -224,7 +225,7 @@
         .problem__callout h3 { max-width: none; font-size: 2rem; }
         .problem__callout p { max-width: 52rem; font-size: 1.15rem; }
         .problem__callout em { font-size: 1.45rem; }
-        .offer { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
+        .offer { padding: 5rem clamp(3rem, 8vw, 8rem) calc(6rem + 24px); }
         .offer__topline { margin-bottom: 4rem; font-size: .88rem; }
         .offer__topline img { width: 4rem; height: 4rem; }
         .offer { display: grid; grid-template-columns: minmax(0, .82fr) minmax(25rem, 1.18fr); column-gap: clamp(3rem, 7vw, 7rem); align-items: start; }
@@ -242,7 +243,7 @@
         .offer__closing { grid-column: 1 / -1; grid-row: 6; grid-template-columns: 7rem 1fr; gap: 2rem; margin: 4rem -8rem -6rem; padding: 3rem 8rem 4rem; }
         .offer__closing img { width: 5.5rem; height: 5.5rem; }
         .offer__closing p { font-size: 2rem; }
-        .pricing { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
+        .pricing { padding: 5rem clamp(3rem, 8vw, 8rem) calc(6rem + 24px); }
         .pricing__topline { margin-bottom: 4rem; font-size: .88rem; }
         .pricing__topline img { width: 4rem; height: 4rem; }
         .pricing__intro { max-width: 39rem; }
@@ -265,7 +266,7 @@
         .booking p { font-size: 1.25rem; line-height: 1.5; }
         .booking strong { display: inline-block; margin-top: 1.15rem; padding: .45rem .85rem; border-radius: 999px; background: rgba(237, 121, 95, .13); font-size: 1.25rem; }
         .booking .booking__mockup { justify-self: end; width: 100%; height: 20rem; min-height: 0; margin: 0; object-fit: contain; }
-        .control { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; }
+        .control { padding: 5rem clamp(3rem, 8vw, 8rem) calc(4rem + 24px); }
         .control__topline { margin-bottom: 4rem; font-size: .88rem; }
         .control__topline img { width: 4rem; height: 4rem; }
         .control__main { display: grid; grid-template-columns: minmax(0, .9fr) minmax(25rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
