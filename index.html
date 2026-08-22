@@ -114,7 +114,8 @@
       .maintenance__detail { margin: .35rem 0 0; font-size: .92rem; line-height: 1.35; }
       .maintenance__detail span { color: #6c9f91; font-weight: 700; }
       @media (max-width: 699px) {
-        .maintenance__plan--featured { grid-column: 1 / -1; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(21, 45, 87, .16); }
+        .maintenance__plan:first-child { grid-column: 1 / -1; justify-content: center; width: 100%; padding-bottom: 1rem; }
+        .maintenance__plan--featured { grid-column: 1 / -1; justify-content: center; width: 100%; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(21, 45, 87, .16); border-left: 0; }
       }
       .pricing__note { display: flex; gap: .5rem; align-items: flex-start; margin: 1rem 1rem 0; font-size: .85rem; line-height: 1.4; }
       .pricing__note img { flex: 0 0 auto; width: 1.2rem; height: 1.2rem; object-fit: contain; }
