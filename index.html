@@ -113,7 +113,7 @@
       .maintenance-card__icon { width: 4.5rem; height: 4.5rem; margin: .35rem 0 .45rem; object-fit: contain; }
       .maintenance-card__price { display: flex; align-items: baseline; gap: .4rem; margin: 0; color: #3e8975; font-family: Georgia, "Times New Roman", serif; }
       .maintenance-card__price strong { font-size: clamp(2.8rem, 7vw, 4.4rem); line-height: .95; }
-      .maintenance-card__price span { color: var(--navy); font-family: Arial, Helvetica, sans-serif; font-size: 1rem; }
+      .maintenance-card__price span { color: var(--navy); font-family: Arial, Helvetica, sans-serif; font-size: 1rem; white-space: nowrap; }
       .maintenance-card__divider { display: flex; align-items: center; gap: .7rem; width: 75%; margin: .8rem 0 .45rem; color: #bad0c0; }
       .maintenance-card__divider::before, .maintenance-card__divider::after { flex: 1; height: 1px; background: rgba(145, 184, 172, .45); content: ""; }
       .maintenance-card__divider::before { box-shadow: 0 0 0 2px rgba(145, 184, 172, .08); }
@@ -270,6 +270,12 @@
         .pricing__photo { grid-column: 2; grid-row: 1 / span 2; height: 42rem; min-height: 0; margin: 0; border-radius: 50% 50% 3rem 2rem; }
         .pricing__intro { grid-column: 1; grid-row: 1; }
         .maintenance { grid-column: 1; grid-row: 2; padding: 2rem; }
+        .maintenance__plans { grid-template-columns: minmax(11rem, .82fr) minmax(17rem, 1.18fr); align-items: stretch; }
+        .maintenance__plan--featured { padding-left: 1.25rem; }
+        .maintenance-card { min-height: 100%; padding: 1.35rem .8rem 1rem; }
+        .maintenance-card__price { gap: .2rem; }
+        .maintenance-card__price strong { font-size: clamp(2.5rem, 4vw, 3.8rem); }
+        .maintenance-card__price span { font-size: .9rem; }
         .pricing__promise { grid-column: 2; grid-row: 3; margin-top: -10rem; }
         .pricing__divider { margin-top: 5rem; font-size: 1.35rem; }
         .aftercare { grid-template-columns: 1fr 1fr; }
