@@ -12,14 +12,16 @@
       body { margin: 0; background: var(--cream); }
       img { max-width: 100%; }
       section, [id] { scroll-margin-top: 4.5rem; }
+      section { border-top: 5px solid var(--section-color); }
       .site-nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 1rem; min-height: 4.25rem; padding: .7rem 1.35rem; border-bottom: 1px solid rgba(21, 45, 87, .1); background: rgba(248, 243, 235, .94); backdrop-filter: blur(14px); }
       .site-nav__brand { display: flex; flex: 0 0 auto; align-items: center; gap: .5rem; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; text-decoration: none; }
       .site-nav__brand img { width: 2rem; height: 2rem; object-fit: contain; }
       .site-nav__links { display: flex; flex: 1 1 auto; gap: .35rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
       .site-nav__links::-webkit-scrollbar { display: none; }
-      .site-nav__links a { flex: 0 0 auto; padding: .55rem .7rem; border-radius: 999px; color: var(--navy); font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
-      .site-nav__links a:hover, .site-nav__links a:focus-visible { outline: none; background: rgba(145, 184, 172, .25); }
-      .hero { position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
+      .site-nav__links a { flex: 0 0 auto; padding: .55rem .7rem; border: 1px solid transparent; border-radius: 999px; color: var(--navy); font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .site-nav__links a:hover, .site-nav__links a:focus-visible { outline: none; color: var(--link-color); background: color-mix(in srgb, var(--link-color) 14%, transparent); }
+      .site-nav__links a.is-active { border-color: var(--link-color); color: var(--link-color); background: color-mix(in srgb, var(--link-color) 14%, transparent); }
+      .hero { --section-color: #ed795f; position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
       .hero::before { position: absolute; z-index: -1; top: -8rem; right: -10rem; width: 22rem; height: 30rem; border-radius: 48% 52% 56% 44%; background: rgba(255, 255, 255, .72); content: ""; }
       .hero__content { position: relative; z-index: 1; max-width: 40rem; }
       .eyebrow { display: inline-block; margin: 0 0 1.8rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; line-height: 1.45; text-transform: uppercase; }
@@ -31,7 +33,7 @@
       .hero__visual { position: relative; z-index: 1; display: block; width: min(100%, 32rem); min-height: 19rem; margin: 2.25rem auto 0; border: 0; object-fit: contain; }
       .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
       .hero__leaf { position: absolute; bottom: -1rem; left: -1rem; z-index: -1; width: 10rem; height: 10rem; object-fit: contain; opacity: .7; }
-      .problem { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .problem { --section-color: #91b8ac; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
       .problem__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .problem__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .problem__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
@@ -52,7 +54,7 @@
       .problem__callout h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; line-height: 1.15; }
       .problem__callout p { margin: 0; font-size: 1.05rem; line-height: 1.45; }
       .problem__callout em { display: block; margin-top: .45rem; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; }
-      .offer { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .offer { --section-color: #e7bd70; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
       .offer__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .offer__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .offer__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
@@ -73,7 +75,7 @@
       .offer__closing img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .offer__closing p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; line-height: 1.15; }
       .offer__closing strong { color: #6c9f91; }
-      .pricing { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .pricing { --section-color: #a998c9; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
       .pricing__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .pricing__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .pricing__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
@@ -113,7 +115,7 @@
       .booking p { margin: 0; font-size: 1.05rem; line-height: 1.45; }
       .booking strong { color: var(--coral); font-size: 1.25rem; }
       .booking__mockup { display: block; width: 100%; min-height: 12rem; object-fit: contain; }
-      .control { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .control { --section-color: #e78970; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
       .control__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .control__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
       .control__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
@@ -228,12 +230,12 @@
         <span>Cu grijă</span>
       </a>
       <div class="site-nav__links">
-        <a href="#acasa">Acasă</a>
-        <a href="#problema">Problema</a>
-        <a href="#include">Ce includ</a>
-        <a href="#preturi">Prețuri</a>
-        <a href="#administrare">Administrare</a>
-        <a href="#contact">Contact</a>
+        <a href="#acasa" style="--link-color: #ed795f;">Acasă</a>
+        <a href="#problema" style="--link-color: #6c9f91;">Problema</a>
+        <a href="#include" style="--link-color: #b4862d;">Ce includ</a>
+        <a href="#preturi" style="--link-color: #8066a8;">Prețuri</a>
+        <a href="#administrare" style="--link-color: #d45e46;">Administrare</a>
+        <a href="#contact" style="--link-color: #d45e46;">Contact</a>
       </div>
     </nav>
     <main>
@@ -489,5 +491,22 @@
         <p class="control__footer"><span>♡</span> &nbsp; Cu grijă pentru oameni mici și mari.</p>
       </section>
     </main>
+    <script>
+      const sections = [...document.querySelectorAll("main > section")];
+      const links = [...document.querySelectorAll(".site-nav__links a")];
+      const linkFor = new Map(links.map((link) => [link.getAttribute("href").slice(1), link]));
+
+      const activateSection = (id) => {
+        links.forEach((link) => link.classList.toggle("is-active", link === linkFor.get(id)));
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) activateSection(visible[0].target.id);
+      }, { rootMargin: "-25% 0px -60% 0px", threshold: [0, .25, .5, .75] });
+
+      sections.forEach((section) => observer.observe(section));
+      activateSection("acasa");
+    </script>
   </body>
 </html>
