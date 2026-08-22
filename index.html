@@ -49,8 +49,6 @@
       .hero__intro::after { display: block; width: 8rem; height: .35rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
       .hero__visual { position: relative; z-index: 1; display: block; width: min(calc(100% + 2rem), 34rem); max-width: none; min-height: 0; margin: .6rem -1rem -1rem; border: 0; background: transparent; object-fit: contain; }
       .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
-      .hero__leaf { position: absolute; bottom: -1rem; left: -1rem; z-index: -1; width: 10rem; height: 10rem; object-fit: contain; opacity: .7; animation: leafBreath 9s ease-in-out infinite; transform-origin: 30% 70%; }
-      @keyframes leafBreath { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
       .problem { --section-color: #91b8ac; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
       .problem__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
       .problem__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
@@ -326,8 +324,6 @@
         <img loading="eager" decoding="async" fetchpriority="high" class="hero__visual" src="icon/mockup-hero-website-final-curat.webp" alt="Mockup final al website-ului, afișat pe laptop și telefon" />
         <!-- Element decorativ: inimă desenată manual, în coral. -->
         <img loading="eager" decoding="async" class="hero__heart" src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
-        <!-- Element decorativ: ramură cu frunze, în tonuri mint. -->
-        <img loading="eager" decoding="async" class="hero__leaf" src="icon/decor-ramura-frunze-mint-lunga.png" alt="" title="Ramură decorativă lungă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
       </section>
 
       <section class="problem" id="problema" aria-labelledby="problem-title">
@@ -651,7 +647,7 @@
 
       const revealSelectors = [
         ".eyebrow", "h1", "h2", ".problem__lead", ".offer__intro", ".pricing__lead", ".control__lead",
-        ".hero__visual", ".hero__heart", ".hero__leaf", ".problem__photo", ".offer__mockup", ".pricing__photo", ".control__photo",
+        ".hero__visual", ".hero__heart", ".problem__photo", ".offer__mockup", ".pricing__photo", ".control__photo",
         ".problem__item", ".offer__feature", ".maintenance", ".aftercare__item", ".booking", ".control__benefit",
         ".problem__callout", ".offer__closing", ".pricing__promise", ".control__promise", ".contact"
       ];
