@@ -264,7 +264,7 @@
         .control__topline { margin-bottom: 4rem; font-size: .88rem; }
         .control__topline img { width: 4rem; height: 4rem; }
         .control__main { display: grid; grid-template-columns: minmax(0, .9fr) minmax(25rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
-        .control__intro { grid-column: 1; grid-row: 1; }
+        .control__content { grid-column: 1; grid-row: 1; }
         .control__photo { grid-column: 2; grid-row: 1; height: 43rem; min-height: 0; margin: 0; }
         .control__lead { font-size: 1.2rem; }
         .control__benefits { grid-column: 1; grid-row: 2; }
@@ -519,15 +519,13 @@
         </div>
 
         <div class="control__main">
-          <div class="control__intro">
+          <div class="control__content">
+            <div class="control__intro">
             <h2 class="control__heading" id="control-title"><span class="control__question">Schimbi un program?</span><span class="control__question">Adaugi un serviciu?</span><span class="control__question control__question--accent">Vrei altă fotografie?</span></h2>
             <p class="control__lead">Le poți modifica singur. La predare îți arăt exact cum. Fără cod. Fără cunoștințe tehnice.</p>
-          </div>
+            </div>
 
-          <!-- Fotografie recomandată: persoană care editează un website pe laptop. -->
-        <img loading="lazy" decoding="async" class="control__photo" src="icon/fotografie-femeie-editeaza-website.webp" alt="Femeie care editează un website pe laptop într-un spațiu luminos" title="Fotografie persoană care editează un website pe laptop — WebP: 1145 × 1374 px" />
-
-          <ul class="control__benefits">
+            <ul class="control__benefits">
             <li class="control__benefit">
               <!-- Icon recomandat: cursor și interfață simplă. -->
               <img loading="lazy" decoding="async" src="icon/icon-interfata-cu-cursor.png" alt="" title="Icon interfață simplă și intuitivă cu cursor — PNG: 1254 × 1254 px" />
@@ -543,13 +541,16 @@
               <img loading="lazy" decoding="async" src="icon/icon-administrare-bagheta-magica.webp" alt="" title="Icon baghetă magică pentru control și flexibilitate — WebP: 1254 × 1254 px" />
               <div><h3>Rămâne al tău</h3><p>Nu depinzi de nimeni pentru fiecare cuvânt pe care vrei să-l schimbi.</p></div>
             </li>
-          </ul>
+            </ul>
 
-          <aside class="control__promise">
+            <aside class="control__promise">
             <!-- Element decorativ: ramură fină în tonuri mint. -->
             <img loading="lazy" decoding="async" src="icon/decor-ramura-frunze-mint-scurta.png" alt="" title="Ramură decorativă scurtă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
             <p><strong>Site-ul tău. Controlul tău.</strong><br />Eu rămân aproape doar când ai nevoie de mine.</p>
-          </aside>
+            </aside>
+          </div>
+          <!-- Fotografie recomandată: persoană care editează un website pe laptop. -->
+          <img loading="lazy" decoding="async" class="control__photo" src="icon/fotografie-femeie-editeaza-website.webp" alt="Femeie care editează un website pe laptop într-un spațiu luminos" title="Fotografie persoană care editează un website pe laptop — WebP: 1145 × 1374 px" />
         </div>
 
       </section>
