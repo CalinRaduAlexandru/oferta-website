@@ -16,7 +16,7 @@
       section, [id] { scroll-margin-top: 4.5rem; }
       section { border-top: 5px solid var(--section-color); }
       .site-nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 1rem; min-height: 4.25rem; padding: .7rem 1.35rem; border-bottom: 1px solid rgba(21, 45, 87, .1); background: rgba(248, 243, 235, .94); backdrop-filter: blur(14px); }
-      .site-nav__section-line { position: absolute; right: 0; bottom: -4px; left: 0; height: 4px; background: var(--section-line-color, var(--coral)); box-shadow: 0 2px 12px color-mix(in srgb, var(--section-line-color, var(--coral)) 35%, transparent); transition: background-color .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s cubic-bezier(.22, 1, .36, 1); }
+      .site-nav__section-line { position: absolute; right: 0; bottom: -4px; left: 0; height: 4px; background: var(--section-line-color, var(--coral)); box-shadow: 0 2px 12px color-mix(in srgb, var(--section-line-color, var(--coral)) 35%, transparent); transition: background-color .15s linear, box-shadow .15s linear; }
       .site-nav__brand { display: flex; flex: 0 0 auto; align-items: center; gap: .5rem; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; text-decoration: none; }
       .site-nav__brand img { width: 2rem; height: 2rem; object-fit: contain; }
       .site-nav__links { position: relative; display: flex; flex: 1 1 auto; gap: .35rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
@@ -538,11 +538,11 @@
       let ticking = false;
       const updateUpcomingSection = () => {
         const navHeight = document.querySelector(".site-nav").offsetHeight;
-        const previewLine = window.innerHeight - navHeight - Math.min(window.innerHeight * .28, 220);
+        const navbarBottom = navHeight + 4;
         let upcoming = sections[0];
 
         sections.forEach((section) => {
-          if (section.getBoundingClientRect().top <= previewLine) upcoming = section;
+          if (section.getBoundingClientRect().top <= navbarBottom) upcoming = section;
         });
 
         activateSection(upcoming.id);
