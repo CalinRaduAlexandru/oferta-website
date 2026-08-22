@@ -23,7 +23,7 @@
       .site-nav__links a { position: relative; z-index: 1; flex: 0 0 auto; padding: .55rem .7rem; border: 1px solid transparent; border-radius: 999px; color: var(--navy); font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: color .55s cubic-bezier(.45, 0, .55, 1), transform .55s cubic-bezier(.45, 0, .55, 1); }
       .site-nav__links a:hover, .site-nav__links a:focus-visible { outline: none; color: var(--link-color); background: color-mix(in srgb, var(--link-color) 14%, transparent); }
       .site-nav__links a.is-active { border-color: transparent; color: var(--link-color); transform: translateY(-1px); }
-      .site-nav__indicator { position: absolute; top: 0; left: 0; z-index: 0; width: 0; height: 100%; border: 1px solid var(--indicator-color, var(--coral)); border-radius: 999px; background: color-mix(in srgb, var(--indicator-color, var(--coral)) 14%, transparent); box-shadow: 0 4px 16px color-mix(in srgb, var(--indicator-color, var(--coral)) 18%, transparent); opacity: 0; pointer-events: none; transform: translateX(0); transition: left .9s cubic-bezier(.22, 1, .36, 1), width .9s cubic-bezier(.22, 1, .36, 1), background-color .9s cubic-bezier(.22, 1, .36, 1), border-color .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s cubic-bezier(.22, 1, .36, 1); }
+      .site-nav__indicator { position: absolute; top: 0; left: -2rem; z-index: 0; width: 0; height: 100%; border: 1px solid var(--indicator-color, var(--coral)); border-radius: 999px; background: color-mix(in srgb, var(--indicator-color, var(--coral)) 14%, transparent); box-shadow: 0 4px 16px color-mix(in srgb, var(--indicator-color, var(--coral)) 18%, transparent); opacity: 0; pointer-events: none; transform: translateX(0); transition: left .9s cubic-bezier(.22, 1, .36, 1), width .9s cubic-bezier(.22, 1, .36, 1), background-color .9s cubic-bezier(.22, 1, .36, 1), border-color .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s cubic-bezier(.22, 1, .36, 1); }
       .hero { --section-color: #ed795f; position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
       .hero::before { position: absolute; z-index: -1; top: -8rem; right: -10rem; width: 22rem; height: 30rem; border-radius: 48% 52% 56% 44%; background: rgba(255, 255, 255, .72); content: ""; }
       .hero__content { position: relative; z-index: 1; max-width: 40rem; }
@@ -547,8 +547,7 @@
           ticking = true;
         }
       }, { passive: true });
-      activateSection("acasa");
-      updateUpcomingSection();
+      window.setTimeout(updateUpcomingSection, 120);
       window.addEventListener("resize", () => moveIndicator(linkFor.get(activeId)));
     </script>
   </body>
