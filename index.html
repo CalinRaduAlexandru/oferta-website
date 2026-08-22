@@ -65,6 +65,46 @@
       .offer__closing img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .offer__closing p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; line-height: 1.15; }
       .offer__closing strong { color: #6c9f91; }
+      .pricing { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .pricing__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .pricing__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
+      .pricing__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
+      .pricing__number::after { width: 2.5rem; height: .12rem; background: var(--coral); content: ""; }
+      .pricing__intro { max-width: 34rem; }
+      .pricing__heading { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.65rem, 12vw, 5rem); letter-spacing: -.065em; line-height: .95; }
+      .pricing__heading span { color: var(--coral); }
+      .pricing__lead { max-width: 25rem; margin: 1.7rem 0 0; font-size: 1.08rem; line-height: 1.5; }
+      .pricing__lead::after { display: block; width: 8rem; height: .3rem; margin-top: 1rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
+      .pricing__photo { display: block; width: 100%; min-height: 20rem; margin: 2.5rem 0; border-radius: 50% 50% 0 0; object-fit: cover; }
+      .maintenance { padding: 1.5rem; border: 1px solid rgba(145, 184, 172, .6); border-radius: 2rem; background: rgba(255, 255, 255, .35); }
+      .maintenance h3 { margin: 0 0 1.5rem; color: #4d8176; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
+      .maintenance__plans { display: grid; grid-template-columns: 1fr 1fr; }
+      .maintenance__plan { display: flex; flex-direction: column; align-items: center; padding: 0 .7rem; text-align: center; }
+      .maintenance__plan + .maintenance__plan { border-left: 1px solid rgba(21, 45, 87, .16); }
+      .maintenance__plan img { width: 3.5rem; height: 3.5rem; margin-bottom: .75rem; object-fit: contain; }
+      .maintenance__price { margin: 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.8rem; font-weight: 700; }
+      .maintenance__price span { color: var(--navy); font-family: Arial, sans-serif; font-size: 1rem; font-weight: 400; }
+      .maintenance__detail { margin: .35rem 0 0; font-size: .92rem; line-height: 1.35; }
+      .pricing__note { margin: 1rem 1rem 0; font-size: .85rem; line-height: 1.4; }
+      .pricing__note strong { color: #6c9f91; font-size: 1.2rem; }
+      .pricing__promise { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: center; margin: 2.5rem 0; }
+      .pricing__promise img { width: 3rem; height: 3rem; object-fit: contain; }
+      .pricing__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; line-height: 1.2; }
+      .pricing__promise span { color: var(--coral); }
+      .pricing__divider { display: flex; align-items: center; gap: .8rem; margin: 2rem 0 1rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; text-align: center; text-transform: uppercase; }
+      .pricing__divider::before, .pricing__divider::after { flex: 1; height: 1px; background: rgba(21, 45, 87, .16); content: ""; }
+      .aftercare { display: grid; gap: 1rem; }
+      .aftercare__item { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; align-items: center; padding: 1rem 0; }
+      .aftercare__item + .aftercare__item { border-top: 1px solid rgba(21, 45, 87, .12); }
+      .aftercare__item img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
+      .aftercare__item h3 { margin: 0 0 .35rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; }
+      .aftercare__item p { margin: 0; font-size: 1rem; line-height: 1.4; }
+      .booking { display: grid; gap: 1rem; margin-top: 2rem; padding: 1.5rem; border: 1px solid #d5c7dc; border-radius: 1.75rem; background: #f5eff5; }
+      .booking img { width: 4.5rem; height: 4.5rem; object-fit: contain; }
+      .booking h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; }
+      .booking p { margin: 0; font-size: 1.05rem; line-height: 1.45; }
+      .booking strong { color: var(--coral); font-size: 1.25rem; }
+      .booking__mockup { display: block; width: 100%; min-height: 12rem; object-fit: contain; }
       @media (min-width: 700px) {
         .hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(26rem, 1.18fr); align-items: center; gap: 2rem; padding: 5rem clamp(3rem, 8vw, 8rem); }
         .hero__content { max-width: 38rem; }
@@ -99,6 +139,24 @@
         .offer__closing { grid-template-columns: 7rem 1fr; gap: 2rem; margin: 4rem -8rem -6rem; padding: 3rem 8rem 4rem; }
         .offer__closing img { width: 5.5rem; height: 5.5rem; }
         .offer__closing p { font-size: 2rem; }
+        .pricing { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
+        .pricing__topline { margin-bottom: 4rem; font-size: .88rem; }
+        .pricing__topline img { width: 4rem; height: 4rem; }
+        .pricing__intro { max-width: 39rem; }
+        .pricing__lead { font-size: 1.2rem; }
+        .pricing__main { display: grid; grid-template-columns: minmax(0, .95fr) minmax(25rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
+        .pricing__photo { grid-column: 2; grid-row: 1 / span 2; height: 46rem; min-height: 0; margin: 0; }
+        .pricing__intro { grid-column: 1; grid-row: 1; }
+        .maintenance { grid-column: 1; grid-row: 2; padding: 2rem; }
+        .pricing__promise { grid-column: 2; grid-row: 3; margin-top: -10rem; }
+        .pricing__divider { margin-top: 5rem; font-size: 1.35rem; }
+        .aftercare { grid-template-columns: 1fr 1fr; }
+        .aftercare__item { padding: 1.5rem 2rem 1.5rem 0; }
+        .aftercare__item:nth-child(even) { padding-left: 2rem; border-left: 1px solid rgba(21, 45, 87, .12); }
+        .aftercare__item:nth-child(2) { border-top: 0; }
+        .booking { grid-template-columns: 6rem 1fr minmax(20rem, .8fr); align-items: center; margin-top: 3rem; padding: 2rem; }
+        .booking img { width: 5rem; height: 5rem; }
+        .booking__mockup { min-height: 12rem; }
       }
     </style>
   </head>
@@ -231,6 +289,70 @@
           <!-- Ilustrație recomandată: inimă coral cu accent mint. -->
           <img src="images/ilustratie-inima-coral-accent-mint-180x180.png" alt="" title="Ilustrație inimă coral cu accent mint — PNG recomandat: 180 × 180 px" />
           <p>Totul este creat în jurul identității tale,<br /><strong>cu grijă, consecvență și atenție la detalii.</strong></p>
+        </aside>
+      </section>
+
+      <section class="pricing" aria-labelledby="pricing-title">
+        <div class="pricing__topline">
+          <!-- Element decorativ: inimă desenată manual, în coral. -->
+          <img src="images/decor-inima-desenata-coral-96x96.png" alt="" title="Inimă decorativă desenată manual, coral — PNG recomandat: 96 × 96 px" />
+          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span class="pricing__number">04</span>
+        </div>
+
+        <div class="pricing__main">
+          <div class="pricing__intro">
+            <h2 class="pricing__heading" id="pricing-title">Realizarea<br />website-ului tău:<br /><span>0 lei.</span></h2>
+            <p class="pricing__lead">Tu nu plătești pentru realizare.<br />Plătești doar cât mă ocup eu să rămână online, rapid și în siguranță.</p>
+          </div>
+
+          <!-- Fotografie recomandată: adult și copil lucrând împreună la o masă. -->
+          <img class="pricing__photo" src="images/fotografie-adult-copil-lucrand-impreuna-cabinet-1000x1200.png" alt="Adult și copil lucrând împreună la o masă într-un spațiu luminos" title="Fotografie adult și copil lucrând împreună într-un cabinet — PNG recomandat: 1000 × 1200 px" />
+
+          <div class="maintenance">
+            <h3>Menținere și administrare*</h3>
+            <div class="maintenance__plans">
+              <div class="maintenance__plan">
+                <img src="icons/icon-programari-calendar.png" alt="" title="Icon calendar pentru planul anual — PNG: 1254 × 1254 px" />
+                <p class="maintenance__price">500 <span>lei / an</span></p>
+                <p class="maintenance__detail">plată anuală</p>
+              </div>
+              <div class="maintenance__plan">
+                <img src="icons/icon-securitate-backup-scut.png" alt="" title="Icon scut pentru planul pe 4 ani — PNG: 1254 × 1254 px" />
+                <p class="maintenance__price">1.500 <span>lei / 4 ani</span></p>
+                <p class="maintenance__detail">plată în avans<br />(375 lei/an)</p>
+              </div>
+            </div>
+            <p class="pricing__note"><strong>*</strong> Include domeniu, hosting, mentenanță tehnică, update-uri, backup și asistență.</p>
+          </div>
+
+          <div class="pricing__promise">
+            <!-- Element decorativ: ramură cu frunze, în tonuri mint. -->
+            <img src="images/decor-ramura-cu-frunze-mint-320x320.png" alt="" title="Ramură decorativă cu frunze în tonuri mint — PNG recomandat: 320 × 320 px" />
+            <p>Tu te concentrezi pe copii.<br />Eu am grijă ca site-ul tău<br /><span>să funcționeze impecabil.</span></p>
+          </div>
+        </div>
+
+        <h3 class="pricing__divider">După predarea proiectului</h3>
+        <div class="aftercare">
+          <article class="aftercare__item">
+            <!-- Icon recomandat: administrare conținut cu creion. -->
+            <img src="icons/icon-texte-creion.png" alt="" title="Icon administrare conținut cu creion — PNG: 1254 × 1254 px" />
+            <div><h3>Îl poți administra singur</h3><p>Îți arăt cum să modifici ușor textele și imaginile. Rămâne 100% al tău.</p></div>
+          </article>
+          <article class="aftercare__item">
+            <!-- Icon recomandat: megafon pentru intervenții suplimentare. -->
+            <img src="images/icon-ajutor-interventie-suplimentara-megafon-160x160.png" alt="" title="Icon megafon pentru ajutor și intervenții suplimentare — PNG recomandat: 160 × 160 px" />
+            <div><h3>Ai nevoie de ajutor?</h3><p>Orice intervenție suplimentară este tarifată de la <span style="color: var(--coral);">50 lei</span> în funcție de complexitate.</p></div>
+          </article>
+        </div>
+
+        <aside class="booking">
+          <!-- Icon recomandat: calendar pentru rezervări online. -->
+          <img src="icons/icon-programari-calendar.png" alt="" title="Icon calendar pentru rezervări online — PNG: 1254 × 1254 px" />
+          <div><h3>Vrei rezervări online?</h3><p>Integrez pentru tine un sistem de programări (ex: Calendly) cu calendar dinamic.<br /><strong>+500 lei (opțional)</strong></p></div>
+          <!-- Mockup recomandat: ecran de laptop cu interfață de programări. -->
+          <img class="booking__mockup" src="images/mockup-calendar-programari-laptop-900x500.png" alt="Interfață de programări online afișată pe laptop" title="Mockup calendar pentru programări online pe laptop — PNG recomandat: 900 × 500 px" />
         </aside>
       </section>
     </main>
