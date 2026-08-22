@@ -158,7 +158,9 @@
       .contact__message { display: flex; align-items: center; gap: .8rem; }
       .contact__message-leaf { width: 3.5rem; height: 3.5rem; object-fit: contain; }
       .contact__message strong { color: #6c9f91; }
-      .contact__laptop { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; clip-path: inset(50px 0 0); margin-bottom: -50px; transform: translateY(-50px); }
+      .contact__laptop-base { position: relative; z-index: 1; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; clip-path: inset(50px 0 0); margin-bottom: -50px; transform: translateY(-50px); }
+      .contact__laptop { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; clip-path: inset(50px 0 0); margin-bottom: -50px; transform: translateY(-50px); mix-blend-mode: screen; }
+      .contact__laptop-base, .contact__laptop { grid-column: 1; grid-row: 2; }
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
       @media (min-width: 700px) {
@@ -244,8 +246,7 @@
         .contact h2 { font-size: clamp(2.8rem, 4vw, 4.5rem); }
         .contact p { font-size: 1.25rem; }
         .contact__cta strong { font-size: 2.1rem; }
-        .contact__laptop { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
-        .contact__laptop { min-height: 17rem; }
+        .contact__laptop-base, .contact__laptop { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
         .contact__leaf { display: block; top: -1rem; right: 1rem; width: 9rem; height: 9rem; }
         .contact__message-leaf { width: 4.5rem; height: 4.5rem; }
         .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; border-top: 0; }
@@ -528,6 +529,7 @@
             </div>
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
+          <img class="contact__laptop-base" src="icon/ilustratie-laptop-inima-mint-contact.png" alt="" aria-hidden="true" />
           <video class="contact__laptop" muted playsinline preload="metadata" aria-label="Animație cu laptop decorativ și inimă">
             <source src="icon/animatie-laptop-inima-contact.mp4" type="video/mp4" />
           </video>
