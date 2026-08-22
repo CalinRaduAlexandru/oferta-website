@@ -140,17 +140,25 @@
       .control__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; line-height: 1.15; }
       .control__promise strong { color: #6c9f91; }
       .contact-section { --section-color: #6c9f91; position: relative; overflow: hidden; padding: 3rem 1.35rem 2.5rem; background: var(--cream); }
-      .contact { display: grid; gap: .9rem; padding: 1.35rem; border: 1px solid rgba(145, 184, 172, .65); border-radius: 1.75rem; background: rgba(255, 255, 255, .55); box-shadow: 0 12px 30px rgba(21, 45, 87, .06); }
-      .contact__whatsapp { display: block; width: 4.25rem; height: 4.25rem; object-fit: contain; }
-      .contact h2 { max-width: 26rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; line-height: 1.1; }
+      .contact { position: relative; display: grid; gap: 1.5rem; overflow: hidden; padding: 2.2rem 1.35rem 1.5rem; border: 1px solid rgba(145, 184, 172, .38); border-radius: 2rem; background: #fbf7ef; box-shadow: 0 16px 35px rgba(21, 45, 87, .12); }
+      .contact::before { position: absolute; top: -5rem; left: -4rem; width: 12rem; height: 11rem; border-radius: 50%; background: rgba(145, 184, 172, .12); content: ""; }
+      .contact::after { position: absolute; right: -4rem; bottom: -5rem; width: 14rem; height: 12rem; border-radius: 60% 0 0; background: rgba(145, 184, 172, .2); content: ""; }
+      .contact__leaf { position: absolute; top: -1.5rem; right: -.5rem; z-index: 1; width: 6rem; height: 6rem; object-fit: contain; }
+      .contact__whatsapp { display: block; width: 4.75rem; height: 4.75rem; object-fit: contain; }
+      .contact__content { position: relative; z-index: 2; }
+      .contact h2 { max-width: 35rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.35rem, 10vw, 4rem); letter-spacing: -.05em; line-height: .98; }
       .contact h2 span { color: var(--coral); }
-      .contact p { margin: 0; font-size: 1rem; line-height: 1.45; }
-      .contact__cta { display: inline-flex; flex-direction: column; align-items: flex-start; gap: .1rem; width: fit-content; margin: .65rem 0 .35rem; padding: 0 0 .3rem; border-bottom: 2px solid var(--coral); color: var(--navy); line-height: 1.15; text-decoration: none; transition: color .3s ease-in-out, border-color .3s ease-in-out, transform .3s ease-in-out; }
-      .contact__cta span { color: var(--coral); font-size: .92rem; font-weight: 700; }
-      .contact__cta strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; letter-spacing: .02em; }
+      .contact p { margin: 0; font-size: 1.08rem; line-height: 1.45; }
+      .contact__whatsapp-row { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+      .contact__cta { display: inline-flex; flex-direction: column; align-items: flex-start; gap: .1rem; width: fit-content; padding: 0 0 .45rem; border-bottom: 2px solid var(--coral); color: var(--navy); line-height: 1.15; text-decoration: none; transition: color .3s ease-in-out, border-color .3s ease-in-out, transform .3s ease-in-out; }
+      .contact__cta span { color: #6c9f91; font-size: 1rem; font-weight: 400; }
+      .contact__cta strong { color: #287c6c; font-family: Georgia, "Times New Roman", serif; font-size: 1.8rem; letter-spacing: .02em; }
       .contact__cta:hover, .contact__cta:focus-visible { border-color: var(--mint); color: #6c9f91; outline: none; transform: translateX(3px); }
-      .contact__line { width: min(100%, 11rem); height: 2px; margin: .15rem 0 .55rem; border-radius: 100%; background: var(--mint); }
-      .contact__laptop { display: block; justify-self: end; width: 10rem; min-height: 6rem; object-fit: contain; }
+      .contact__line { width: 100%; height: 1px; margin: 1.35rem 0 1rem; background: rgba(21, 45, 87, .16); }
+      .contact__message { display: flex; align-items: center; gap: .8rem; }
+      .contact__message-leaf { width: 3.5rem; height: 3.5rem; object-fit: contain; }
+      .contact__message strong { color: #6c9f91; }
+      .contact__laptop { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; }
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
       @media (min-width: 700px) {
@@ -227,12 +235,15 @@
         .control__benefit { grid-template-columns: 5rem 1fr; min-height: 9rem; }
         .control__benefit img { width: 4.5rem; height: 4.5rem; }
         .control__promise { grid-column: 2; grid-row: 2; margin: -8rem 0 0; padding: 2rem; }
-        .contact { grid-template-columns: 6rem 1fr 15rem; align-items: center; padding: 2rem 2.5rem; }
-        .contact__whatsapp { width: 5rem; height: 5rem; }
-        .contact h2 { font-size: 1.9rem; }
-        .contact p { font-size: 1.2rem; }
-        .contact__cta strong { font-size: 1.5rem; }
-        .contact__laptop { width: 13rem; min-height: 10rem; }
+        .contact { grid-template-columns: minmax(0, 1fr) minmax(18rem, .8fr); align-items: center; padding: 4rem 5rem 3rem; }
+        .contact__content { grid-column: 1; }
+        .contact__whatsapp { width: 5.5rem; height: 5.5rem; }
+        .contact h2 { font-size: clamp(2.8rem, 4vw, 4.5rem); }
+        .contact p { font-size: 1.25rem; }
+        .contact__cta strong { font-size: 2.1rem; }
+        .contact__laptop { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
+        .contact__leaf { top: -1rem; right: 1rem; width: 9rem; height: 9rem; }
+        .contact__message-leaf { width: 4.5rem; height: 4.5rem; }
         .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; }
         .contact-section .contact { max-width: 78rem; margin: 0 auto; }
         .contact-section .control__footer { margin-top: 2.5rem; }
@@ -499,12 +510,18 @@
       <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <aside class="contact">
           <!-- Icon recomandat: WhatsApp alb pe fundal coral. -->
-          <img class="contact__whatsapp" src="icon/icon-whatsapp-contact.png" alt="WhatsApp" title="Icon WhatsApp pentru contact — PNG: 376 × 342 px" />
-          <div>
+          <img class="contact__leaf" src="icon/decor-ramura-frunze-mint-lunga.png" alt="" title="Ramură decorativă lungă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
+          <div class="contact__content">
             <h2 id="contact-title">Hai să <span>discutăm</span> despre proiectul tău!</h2>
-            <a class="contact__cta" href="https://wa.me/40742804731" target="_blank" rel="noopener" aria-label="Deschide conversația WhatsApp cu numărul 0742 804 731"><span>Scrie-mi pe WhatsApp</span><strong>0742 804 731</strong></a>
+            <div class="contact__whatsapp-row">
+              <img class="contact__whatsapp" src="icon/icon-whatsapp-contact.png" alt="WhatsApp" title="Icon WhatsApp pentru contact — PNG: 376 × 342 px" />
+              <a class="contact__cta" href="https://wa.me/40742804731" target="_blank" rel="noopener" aria-label="Deschide conversația WhatsApp cu numărul 0742 804 731"><span>Scrie-mi pe WhatsApp</span><strong>0742 804 731</strong></a>
+            </div>
             <div class="contact__line"></div>
-            <p>Îți pregătesc <strong style="color: #6c9f91;">gratuit</strong> o mostră cu felul în care ar putea arăta website-ul tău.</p>
+            <div class="contact__message">
+              <img class="contact__message-leaf" src="icon/decor-ramura-frunze-mint-scurta.png" alt="" title="Ramură decorativă scurtă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
+              <p>Îți pregătesc <strong>gratuit</strong> o mostră cu felul în care ar putea arăta website-ul tău.</p>
+            </div>
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
           <img class="contact__laptop" src="icon/ilustratie-laptop-cu-inima.png" alt="Laptop decorativ cu inimă" title="Ilustrație laptop cu inimă și accente mint — PNG: 366 × 342 px" />
