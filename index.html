@@ -181,15 +181,19 @@
         .offer { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
         .offer__topline { margin-bottom: 4rem; font-size: .88rem; }
         .offer__topline img { width: 4rem; height: 4rem; }
+        .offer { display: grid; grid-template-columns: minmax(0, .82fr) minmax(25rem, 1.18fr); column-gap: clamp(3rem, 7vw, 7rem); align-items: start; }
+        .offer__topline { grid-column: 1 / -1; }
+        .offer__heading { grid-column: 1; grid-row: 2; align-self: end; }
+        .offer__intro { grid-column: 1; grid-row: 3; align-self: start; }
         .offer__intro { font-size: 1.2rem; }
-        .offer__mockup { width: min(62rem, 100%); min-height: 38rem; margin: 3rem auto 4rem; }
-        .offer__included { margin-bottom: 2rem; font-size: 1.35rem; }
-        .offer__features { grid-template-columns: repeat(2, 1fr); }
+        .offer__mockup { grid-column: 2; grid-row: 2 / span 2; align-self: center; width: 100%; height: 34rem; min-height: 0; margin: 0; object-fit: contain; }
+        .offer__included { grid-column: 1 / -1; grid-row: 4; margin: 4rem 0 2rem; font-size: 1.35rem; }
+        .offer__features { grid-column: 1 / -1; grid-row: 5; grid-template-columns: repeat(2, 1fr); }
         .offer__feature { grid-template-columns: 5rem 1fr; min-height: 10rem; padding: 1.5rem 2rem 1.5rem 0; }
         .offer__feature:nth-child(odd) { border-right: 1px solid rgba(21, 45, 87, .12); }
         .offer__feature:nth-child(even) { padding-left: 2rem; }
         .offer__feature img { width: 4.5rem; height: 4.5rem; }
-        .offer__closing { grid-template-columns: 7rem 1fr; gap: 2rem; margin: 4rem -8rem -6rem; padding: 3rem 8rem 4rem; }
+        .offer__closing { grid-column: 1 / -1; grid-row: 6; grid-template-columns: 7rem 1fr; gap: 2rem; margin: 4rem -8rem -6rem; padding: 3rem 8rem 4rem; }
         .offer__closing img { width: 5.5rem; height: 5.5rem; }
         .offer__closing p { font-size: 2rem; }
         .pricing { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
@@ -256,7 +260,7 @@
           <p class="hero__intro">Cald. Profesionist. Primitor.<br />Construit în jurul identității tale.</p>
         </div>
         <!-- Mockup cu website de psihologie pentru copii, afișat pe laptop și telefon. -->
-        <img class="hero__visual" src="icon/mockup-website-laptop-telefon-cabinet.png" alt="Mockup al unui website de psihologie pentru copii, afișat pe laptop și telefon" title="Mockup website psihologie copii pe laptop și telefon — PNG: 1161 × 1355 px" />
+        <img class="hero__visual" src="icon/mockup-website-oferta-laptop-telefon.png" alt="Mockup al unui website de psihologie pentru copii, afișat pe laptop și telefon" title="Mockup website psihologie copii pe laptop și telefon — PNG: 1448 × 1086 px" />
         <!-- Element decorativ: inimă desenată manual, în coral. -->
         <img class="hero__heart" src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
         <!-- Element decorativ: ramură cu frunze, în tonuri mint. -->
@@ -267,7 +271,7 @@
         <div class="problem__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
-          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span>De ce merită să fii prezent online</span>
           <span class="problem__number">02</span>
         </div>
 
@@ -318,7 +322,7 @@
         <div class="offer__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
-          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span>Tot ce ai nevoie ca să începi</span>
           <span class="offer__number">03</span>
         </div>
 
@@ -326,7 +330,7 @@
         <p class="offer__intro">Un website complet, profesionist și ușor de folosit, adaptat activității tale și celor pe care îi ajuți.</p>
 
         <!-- Mockup recomandat: website prezentat pe laptop și telefon, într-un spațiu cald. -->
-        <img class="offer__mockup" src="icon/mockup-website-laptop-telefon-cabinet.png" alt="Website complet prezentat pe laptop și telefon într-un cabinet luminos" title="Mockup website complet pe laptop și telefon, într-un cabinet — PNG: 1161 × 1355 px" />
+        <img class="offer__mockup" src="icon/mockup-website-oferta-laptop-telefon.png" alt="Website complet prezentat pe laptop și telefon într-un cabinet luminos" title="Mockup website complet pe laptop și telefon, într-un cabinet — PNG: 1448 × 1086 px" />
 
         <h3 class="offer__included">Oferta include:</h3>
         <ul class="offer__features">
@@ -383,7 +387,7 @@
         <div class="pricing__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
-          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span>O investiție simplă și transparentă</span>
           <span class="pricing__number">04</span>
         </div>
 
@@ -394,7 +398,7 @@
           </div>
 
           <!-- Fotografie recomandată: adult și copil lucrând împreună la o masă. -->
-          <img class="pricing__photo" src="images/fotografie-adult-copil-lucrand-impreuna-cabinet-1000x1200.png" alt="Adult și copil lucrând împreună la o masă într-un spațiu luminos" title="Fotografie adult și copil lucrând împreună într-un cabinet — PNG recomandat: 1000 × 1200 px" />
+        <img class="pricing__photo" src="icon/fotografie-femeie-copil-cabinet.png" alt="Adult și copil lucrând împreună la o masă într-un spațiu luminos" title="Fotografie adult și copil lucrând împreună într-un cabinet — PNG: 1365 × 1365 px" />
 
           <div class="maintenance">
             <h3>Menținere și administrare*</h3>
@@ -447,7 +451,7 @@
         <div class="control__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
-          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span>Tu rămâi mereu la control</span>
           <span class="control__number">05</span>
         </div>
 
@@ -458,7 +462,7 @@
           </div>
 
           <!-- Fotografie recomandată: persoană care editează un website pe laptop. -->
-          <img class="control__photo" src="images/fotografie-femeie-editeaza-website-laptop-1000x1200.png" alt="Femeie care editează un website pe laptop într-un spațiu luminos" title="Fotografie persoană care editează un website pe laptop — PNG recomandat: 1000 × 1200 px" />
+          <img class="control__photo" src="icon/fotografie-femeie-editeaza-website.png" alt="Femeie care editează un website pe laptop într-un spațiu luminos" title="Fotografie persoană care editează un website pe laptop — PNG: 1145 × 1374 px" />
 
           <ul class="control__benefits">
             <li class="control__benefit">
