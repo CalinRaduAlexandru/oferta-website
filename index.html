@@ -23,6 +23,27 @@
       .hero__visual { position: relative; z-index: 1; display: block; width: min(100%, 32rem); min-height: 19rem; margin: 2.25rem auto 0; border: 0; object-fit: contain; }
       .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
       .hero__leaf { position: absolute; bottom: -1rem; left: -1rem; z-index: -1; width: 10rem; height: 10rem; object-fit: contain; opacity: .7; }
+      .problem { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .problem__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .problem__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
+      .problem__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
+      .problem__number::after { width: 2.5rem; height: .12rem; background: var(--coral); content: ""; }
+      .problem__heading { max-width: 36rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.55rem, 11vw, 4.5rem); font-weight: 700; letter-spacing: -.06em; line-height: .98; }
+      .problem__heading span { color: var(--coral); }
+      .problem__lead { max-width: 31rem; margin: 1.6rem 0 0; font-size: 1.08rem; line-height: 1.45; }
+      .problem__lead::after { display: block; width: 7rem; height: .3rem; margin-top: 1rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
+      .problem__photo { display: block; width: 100%; min-height: 21rem; margin: 2.5rem 0 2rem; border-radius: 48% 48% 0 0; object-fit: cover; }
+      .problem__list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+      .problem__item { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; align-items: center; min-height: 7.5rem; padding: 1rem 0; border-bottom: 1px solid rgba(21, 45, 87, .12); }
+      .problem__item img { width: 4.5rem; height: 4.5rem; object-fit: contain; }
+      .problem__item strong, .problem__item span { display: block; }
+      .problem__item strong { margin-bottom: .35rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.18rem; line-height: 1.15; }
+      .problem__item span { font-size: 1rem; line-height: 1.4; }
+      .problem__callout { display: grid; gap: 1rem; margin-top: 2.5rem; padding: 1.5rem; border: 1px solid rgba(145, 184, 172, .55); border-radius: 2rem; background: rgba(255, 255, 255, .35); }
+      .problem__callout img { width: 4.5rem; height: 4.5rem; object-fit: contain; }
+      .problem__callout h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; line-height: 1.15; }
+      .problem__callout p { margin: 0; font-size: 1.05rem; line-height: 1.45; }
+      .problem__callout em { display: block; margin-top: .45rem; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; }
       @media (min-width: 700px) {
         .hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(26rem, 1.18fr); align-items: center; gap: 2rem; padding: 5rem clamp(3rem, 8vw, 8rem); }
         .hero__content { max-width: 38rem; }
@@ -32,6 +53,17 @@
         .hero__visual { width: 100%; min-height: 34rem; margin: 0; }
         .hero__heart { top: 12%; right: 6%; width: 6rem; height: 6rem; }
         .hero__leaf { width: 16rem; height: 16rem; }
+        .problem { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
+        .problem__topline { margin-bottom: 4rem; font-size: .88rem; }
+        .problem__topline img { width: 4rem; height: 4rem; }
+        .problem__layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(24rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
+        .problem__photo { grid-column: 2; grid-row: 1 / span 2; height: 55rem; min-height: 0; margin: 0; border-radius: 48% 48% 0 0; }
+        .problem__content { grid-column: 1; grid-row: 1; }
+        .problem__list { grid-column: 1; grid-row: 2; }
+        .problem__item { grid-template-columns: 6rem 1fr; min-height: 8rem; }
+        .problem__item img { width: 5.25rem; height: 5.25rem; }
+        .problem__callout { grid-column: 1 / -1; grid-row: 3; grid-template-columns: 7rem 1fr; align-items: center; margin-top: 4rem; padding: 2rem 3rem; border-radius: 2.5rem; }
+        .problem__callout img { width: 5.5rem; height: 5.5rem; }
       }
     </style>
   </head>
@@ -49,6 +81,57 @@
         <img class="hero__heart" src="images/decor-inima-desenata-coral-96x96.png" alt="" title="Inimă decorativă desenată manual, coral — PNG recomandat: 96 × 96 px" />
         <!-- Element decorativ: ramură cu frunze, în tonuri mint. -->
         <img class="hero__leaf" src="images/decor-ramura-cu-frunze-mint-320x320.png" alt="" title="Ramură decorativă cu frunze în tonuri mint — PNG recomandat: 320 × 320 px" />
+      </section>
+
+      <section class="problem" aria-labelledby="problem-title">
+        <div class="problem__topline">
+          <!-- Element decorativ: inimă desenată manual, în coral. -->
+          <img src="images/decor-inima-desenata-coral-96x96.png" alt="" title="Inimă decorativă desenată manual, coral — PNG recomandat: 96 × 96 px" />
+          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span class="problem__number">02</span>
+        </div>
+
+        <div class="problem__layout">
+          <div class="problem__content">
+            <h2 class="problem__heading" id="problem-title">Ai grijă de copii.<br />Dar cine are grijă de <span>prezența</span> ta online?</h2>
+            <p class="problem__lead">Fără un website profesionist, pierzi încrederea părinților și timpul tău prețios.</p>
+          </div>
+
+          <!-- Fotografie recomandată: psiholog lucrând cu un copil într-un cabinet cald. -->
+          <img class="problem__photo" src="images/fotografie-psiholog-copil-consultatie-cabinet-1000x1300.png" alt="Psiholog lucrând cu un copil într-un cabinet luminos și primitor" title="Fotografie psiholog și copil la consultație într-un cabinet — PNG recomandat: 1000 × 1300 px" />
+
+          <ul class="problem__list">
+            <li class="problem__item">
+              <!-- Icon recomandat: persoane care caută un specialist. -->
+              <img src="images/icon-parinti-cauta-specialist-160x160.png" alt="" title="Icon persoane care caută un specialist — PNG recomandat: 160 × 160 px" />
+              <p><strong>Părinții te caută online</strong><span>și nu știu cine ești și cum poți să îi ajuți.</span></p>
+            </li>
+            <li class="problem__item">
+              <!-- Icon recomandat: ceas pentru timpul pierdut. -->
+              <img src="images/icon-ceas-timp-pierdut-160x160.png" alt="" title="Icon ceas pentru timpul pierdut — PNG recomandat: 160 × 160 px" />
+              <p><strong>Răspunzi la aceleași întrebări</strong><span>iar și iar, pierzând timp în fiecare zi.</span></p>
+            </li>
+            <li class="problem__item">
+              <!-- Icon recomandat: calendar pentru programări. -->
+              <img src="images/icon-calendar-programari-160x160.png" alt="" title="Icon calendar pentru programări — PNG recomandat: 160 × 160 px" />
+              <p><strong>Programările sunt haotice</strong><span>și apar suprapuneri sau ore pierdute.</span></p>
+            </li>
+            <li class="problem__item">
+              <!-- Icon recomandat: inimă pentru încredere și empatie. -->
+              <img src="images/icon-inima-incredere-160x160.png" alt="" title="Icon inimă pentru încredere și empatie — PNG recomandat: 160 × 160 px" />
+              <p><strong>Meriți să fii prezentat</strong><span>așa cum ești: profesionist, empatic, de încredere.</span></p>
+            </li>
+          </ul>
+
+          <aside class="problem__callout">
+            <!-- Ilustrație recomandată: inimă cu raze, în mint. -->
+            <img src="images/ilustratie-inima-cu-raze-mint-180x180.png" alt="" title="Ilustrație inimă cu raze în tonuri mint — PNG recomandat: 180 × 180 px" />
+            <div>
+              <h3>Eu îți construiesc un website<br />care inspiră încredere și aduce părinții mai aproape.</h3>
+              <p>Tu te concentrezi pe ceea ce contează cu adevărat:<em>oamenii mici care au nevoie de tine.</em></p>
+            </div>
+          </aside>
+        </div>
       </section>
     </main>
   </body>
