@@ -98,8 +98,8 @@
       .maintenance__price { margin: 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.8rem; font-weight: 700; }
       .maintenance__price span { color: var(--navy); font-family: Arial, sans-serif; font-size: 1rem; font-weight: 400; }
       .maintenance__detail { margin: .35rem 0 0; font-size: .92rem; line-height: 1.35; }
-      .pricing__note { margin: 1rem 1rem 0; font-size: .85rem; line-height: 1.4; }
-      .pricing__note strong { color: #6c9f91; font-size: 1.2rem; }
+      .pricing__note { display: flex; gap: .5rem; align-items: flex-start; margin: 1rem 1rem 0; font-size: .85rem; line-height: 1.4; }
+      .pricing__note img { flex: 0 0 auto; width: 1.2rem; height: 1.2rem; object-fit: contain; }
       .pricing__promise { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: center; margin: 2.5rem 0; }
       .pricing__promise img { width: 3rem; height: 3rem; object-fit: contain; }
       .pricing__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; line-height: 1.2; }
@@ -137,7 +137,7 @@
       .control__promise img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .control__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; line-height: 1.15; }
       .control__promise strong { color: #6c9f91; }
-      .contact { display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid #efb5a6; border-radius: 1.75rem; background: #fff0e9; }
+      .contact { position: relative; display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid #efb5a6; border-radius: 1.75rem; background: #fff0e9; }
       .contact__whatsapp { display: block; width: 5rem; height: 5rem; object-fit: contain; }
       .contact h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; line-height: 1.1; }
       .contact h2 span, .contact__phone { color: var(--coral); }
@@ -145,6 +145,7 @@
       .contact__phone { font-size: 1.55rem; font-weight: 700; text-decoration: none; }
       .contact__line { width: 100%; height: .2rem; margin: .25rem 0; border-radius: 100%; background: var(--mint); }
       .contact__laptop { display: block; width: 100%; min-height: 8rem; object-fit: contain; }
+      .contact__hearts { position: absolute; top: .7rem; right: .7rem; width: 3.25rem; height: 3.25rem; object-fit: contain; opacity: .85; }
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
       @media (min-width: 700px) {
@@ -223,6 +224,7 @@
         .contact p { font-size: 1.2rem; }
         .contact__phone { font-size: 1.8rem; }
         .contact__laptop { min-height: 12rem; }
+        .contact__hearts { top: 1rem; right: 1rem; width: 5rem; height: 5rem; }
         .control__footer { margin-top: 2.5rem; font-size: 1.3rem; }
       }
     </style>
@@ -405,7 +407,7 @@
                 <p class="maintenance__detail">plată în avans<br />(375 lei/an)</p>
               </div>
             </div>
-            <p class="pricing__note"><strong>*</strong> Include domeniu, hosting, mentenanță tehnică, update-uri, backup și asistență.</p>
+            <p class="pricing__note"><img src="icon/decor-asterisc-mint.png" alt="" title="Asterisc decorativ mint — PNG: 1254 × 1254 px" /> <span>Include domeniu, hosting, mentenanță tehnică, update-uri, backup și asistență.</span></p>
           </div>
 
           <div class="pricing__promise">
@@ -491,6 +493,8 @@
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
           <img class="contact__laptop" src="icon/ilustratie-laptop-cu-inima.png" alt="Laptop decorativ cu inimă" title="Ilustrație laptop cu inimă și accente mint — PNG: 366 × 342 px" />
+          <!-- Decorațiune: două inimioare mov. -->
+          <img class="contact__hearts" src="icon/decor-inimioare-mov.png" alt="" title="Două inimioare decorative mov — PNG: 1254 × 1254 px" />
         </aside>
 
         <p class="control__footer"><span>♡</span> &nbsp; Cu grijă pentru oameni mici și mari.</p>
