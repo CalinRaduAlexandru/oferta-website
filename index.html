@@ -139,7 +139,7 @@
       .control__promise img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .control__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; line-height: 1.15; }
       .control__promise strong { color: #6c9f91; }
-      .contact-section { --section-color: #6c9f91; position: relative; overflow: hidden; padding: 3rem 1.35rem 2.5rem; background: var(--cream); }
+      .contact-section { --section-color: #6c9f91; position: relative; overflow: hidden; padding: 3rem 1.35rem 2.5rem; border-top: 0; background: var(--cream); }
       .contact { position: relative; display: grid; gap: 1.5rem; overflow: hidden; padding: 2.2rem 1.35rem 1.5rem; border: 1px solid rgba(145, 184, 172, .38); border-radius: 2rem; background: #fbf7ef; box-shadow: 0 16px 35px rgba(21, 45, 87, .12); }
       .contact::before { position: absolute; top: -5rem; left: -4rem; width: 12rem; height: 11rem; border-radius: 50%; background: rgba(145, 184, 172, .12); content: ""; }
       .contact::after { position: absolute; right: -4rem; bottom: -5rem; width: 14rem; height: 12rem; border-radius: 60% 0 0; background: rgba(145, 184, 172, .2); content: ""; }
@@ -244,7 +244,7 @@
         .contact__laptop { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
         .contact__leaf { top: -1rem; right: 1rem; width: 9rem; height: 9rem; }
         .contact__message-leaf { width: 4.5rem; height: 4.5rem; }
-        .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; }
+        .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; border-top: 0; }
         .contact-section .contact { max-width: 78rem; margin: 0 auto; }
         .contact-section .control__footer { margin-top: 2.5rem; }
         .control__footer { margin-top: 2.5rem; font-size: 1.3rem; }
@@ -569,6 +569,11 @@
         sections.forEach((section) => {
           if (section.getBoundingClientRect().top <= navbarBottom) upcoming = section;
         });
+
+        const contact = document.getElementById("contact");
+        if (contact && contact.getBoundingClientRect().top < window.innerHeight && contact.getBoundingClientRect().bottom > navHeight) {
+          upcoming = contact;
+        }
 
         activateSection(upcoming.id);
         ticking = false;
