@@ -35,7 +35,8 @@
       h1 span { color: var(--coral); }
       .hero__intro { max-width: 22rem; margin: 1.6rem 0 0; font-size: 1.05rem; line-height: 1.4; }
       .hero__intro::after { display: block; width: 8rem; height: .35rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
-      .hero__visual { position: relative; z-index: 1; display: block; width: min(100%, 32rem); min-height: 19rem; margin: 2.25rem auto 0; border: 0; object-fit: contain; }
+      .hero__visual { position: relative; z-index: 1; display: block; width: min(calc(100% + 2rem), 34rem); max-width: none; min-height: 0; margin: .6rem -1rem -1rem; border: 0; background: transparent; object-fit: contain; }
+      .hero__visual--fallback { mix-blend-mode: screen; }
       .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
       .hero__leaf { position: absolute; bottom: -1rem; left: -1rem; z-index: -1; width: 10rem; height: 10rem; object-fit: contain; opacity: .7; }
       .problem { --section-color: #91b8ac; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
@@ -174,12 +175,12 @@
         .site-nav__links { justify-content: flex-end; gap: .5rem; }
         .site-nav__links a { padding: .65rem .85rem; font-size: .82rem; }
         .site-nav__indicator { top: 0; }
-        .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(24rem, 1fr); align-items: center; gap: clamp(2rem, 5vw, 5rem); padding: 5rem clamp(3rem, 8vw, 8rem); }
+        .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(24rem, 1fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); padding: 5rem clamp(3rem, 8vw, 8rem); }
         .hero__content { max-width: 38rem; }
         .eyebrow { margin-bottom: 2.5rem; font-size: .88rem; }
         h1 { max-width: 44rem; font-size: clamp(2.8rem, 4.8vw, 4.75rem); }
         .hero__intro { margin-top: 2rem; font-size: 1.2rem; }
-        .hero__visual { width: 100%; min-height: 34rem; margin: 0; }
+        .hero__visual { justify-self: center; width: min(100%, 36rem); min-height: 0; margin: 0; }
         .hero__heart { top: 12%; right: 6%; width: 6rem; height: 6rem; }
         .hero__leaf { width: 16rem; height: 16rem; }
         .problem { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
@@ -286,8 +287,11 @@
           <h1 id="hero-title">Un website<br />pe măsura <span>grijii</span><br />pe care o pui în<br />munca ta<span>.</span></h1>
           <p class="hero__intro">Cald. Profesionist. Primitor.<br />Construit în jurul identității tale.</p>
         </div>
-        <!-- Mockup cu website de psihologie pentru copii, afișat pe laptop și telefon. -->
-        <img class="hero__visual" src="icon/mockup-website-laptop-telefon-cabinet.png" alt="Mockup al unui website de psihologie pentru copii, afișat pe laptop și telefon" title="Mockup website psihologie copii pe laptop și telefon — PNG: 1161 × 1355 px" />
+        <!-- Animație cu mockup-ul website-ului care se construiește pe laptop și telefon. -->
+        <video class="hero__visual" muted playsinline preload="auto" poster="icon/poster-hero-mockup-website-aparitie-transparent.png" aria-label="Mockup animat al unui website pentru copii, afișat pe laptop și telefon">
+          <source src="icon/animatie-hero-mockup-website-aparitie-transparent.webm" type="video/webm; codecs=vp9" />
+          <source src="icon/animatie-hero-mockup-website-aparitie-fallback.mp4" type="video/mp4" />
+        </video>
         <!-- Element decorativ: inimă desenată manual, în coral. -->
         <img class="hero__heart" src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
         <!-- Element decorativ: ramură cu frunze, în tonuri mint. -->
@@ -603,6 +607,34 @@
       updateUpcomingSection();
       siteNav.classList.remove("site-nav--initializing");
       window.addEventListener("resize", () => moveIndicator(linkFor.get(activeId)));
+
+      const heroVideo = document.querySelector(".hero__visual");
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (heroVideo) {
+        if (!heroVideo.canPlayType('video/webm; codecs="vp9"')) {
+          heroVideo.classList.add("hero__visual--fallback");
+        }
+
+        const startHeroVideo = () => {
+          heroVideo.currentTime = 0;
+          heroVideo.play().catch(() => {});
+        };
+
+        if (prefersReducedMotion) {
+          const showFinalHeroFrame = () => {
+            heroVideo.currentTime = Math.max(0, heroVideo.duration - .05);
+          };
+          if (heroVideo.readyState >= 1) showFinalHeroFrame();
+          else heroVideo.addEventListener("loadedmetadata", showFinalHeroFrame, { once: true });
+        } else if (heroVideo.readyState >= 2) {
+          startHeroVideo();
+        } else {
+          heroVideo.addEventListener("canplay", startHeroVideo, { once: true });
+        }
+
+        heroVideo.addEventListener("ended", () => heroVideo.pause());
+      }
 
       const contactVideo = document.querySelector(".contact__laptop");
       let contactVideoStarted = false;
