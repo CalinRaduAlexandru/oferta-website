@@ -140,9 +140,12 @@
       .contact { position: relative; display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid #efb5a6; border-radius: 1.75rem; background: #fff0e9; }
       .contact__whatsapp { display: block; width: 5rem; height: 5rem; object-fit: contain; }
       .contact h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; line-height: 1.1; }
-      .contact h2 span, .contact__phone { color: var(--coral); }
+      .contact h2 span { color: var(--coral); }
       .contact p { margin: 0; font-size: 1.08rem; line-height: 1.45; }
-      .contact__phone { font-size: 1.55rem; font-weight: 700; text-decoration: none; }
+      .contact__cta { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; width: fit-content; margin: .65rem 0 .25rem; padding: .8rem 1.2rem; border-radius: 999px; background: var(--coral); box-shadow: 0 8px 20px rgba(237, 121, 95, .25); color: #fff; font-size: 1rem; font-weight: 700; line-height: 1.15; text-align: center; text-decoration: none; transition: transform .35s ease-in-out, box-shadow .35s ease-in-out, background-color .35s ease-in-out; }
+      .contact__cta span { font-size: .85rem; }
+      .contact__cta strong { font-size: 1.2rem; letter-spacing: .02em; }
+      .contact__cta:hover, .contact__cta:focus-visible { background: #d9634c; box-shadow: 0 11px 24px rgba(237, 121, 95, .35); outline: none; transform: translateY(-2px); }
       .contact__line { width: 100%; height: .2rem; margin: .25rem 0; border-radius: 100%; background: var(--mint); }
       .contact__laptop { display: block; width: 100%; min-height: 8rem; object-fit: contain; }
       .contact__hearts { position: absolute; top: .7rem; right: .7rem; width: 3.25rem; height: 3.25rem; object-fit: contain; opacity: .85; }
@@ -222,7 +225,8 @@
         .contact__whatsapp { width: 6rem; height: 6rem; }
         .contact h2 { font-size: 2rem; }
         .contact p { font-size: 1.2rem; }
-        .contact__phone { font-size: 1.8rem; }
+        .contact__cta { padding: .9rem 1.4rem; }
+        .contact__cta strong { font-size: 1.35rem; }
         .contact__laptop { min-height: 12rem; }
         .contact__hearts { top: 1rem; right: 1rem; width: 5rem; height: 5rem; }
         .control__footer { margin-top: 2.5rem; font-size: 1.3rem; }
@@ -487,7 +491,7 @@
           <img class="contact__whatsapp" src="icon/icon-whatsapp-contact.png" alt="WhatsApp" title="Icon WhatsApp pentru contact — PNG: 376 × 342 px" />
           <div>
             <h2>Hai să <span>discutăm</span> despre proiectul tău!</h2>
-            <p>Scrie-mi pe WhatsApp la <a class="contact__phone" href="https://wa.me/40742804731">0742 804 731</a></p>
+            <a class="contact__cta" href="https://wa.me/40742804731" target="_blank" rel="noopener" aria-label="Deschide conversația WhatsApp cu numărul 0742 804 731"><span>Scrie-mi pe WhatsApp</span><strong>0742 804 731</strong></a>
             <div class="contact__line"></div>
             <p>Îți pregătesc <strong style="color: #6c9f91;">gratuit</strong> o mostră cu felul în care ar putea arăta website-ul tău.</p>
           </div>
