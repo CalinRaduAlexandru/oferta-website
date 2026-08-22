@@ -139,6 +139,7 @@
       .control__promise img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .control__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; line-height: 1.15; }
       .control__promise strong { color: #6c9f91; }
+      .contact-section { --section-color: #6c9f91; position: relative; overflow: hidden; padding: 3rem 1.35rem 2.5rem; background: var(--cream); }
       .contact { display: grid; gap: .9rem; padding: 1.35rem; border: 1px solid rgba(145, 184, 172, .65); border-radius: 1.75rem; background: rgba(255, 255, 255, .55); box-shadow: 0 12px 30px rgba(21, 45, 87, .06); }
       .contact__whatsapp { display: block; width: 4.25rem; height: 4.25rem; object-fit: contain; }
       .contact h2 { max-width: 26rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; line-height: 1.1; }
@@ -232,6 +233,9 @@
         .contact p { font-size: 1.2rem; }
         .contact__cta strong { font-size: 1.5rem; }
         .contact__laptop { width: 13rem; min-height: 10rem; }
+        .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; }
+        .contact-section .contact { max-width: 78rem; margin: 0 auto; }
+        .contact-section .control__footer { margin-top: 2.5rem; }
         .control__footer { margin-top: 2.5rem; font-size: 1.3rem; }
       }
     </style>
@@ -250,7 +254,7 @@
         <a href="#include" style="--link-color: #d19f25;">Ce este inclus</a>
         <a href="#preturi" style="--link-color: #8066a8;">Prețuri</a>
         <a href="#administrare" style="--link-color: #d45e46;">Administrare</a>
-        <a href="#contact" style="--link-color: #d45e46;">Contact</a>
+        <a href="#contact" style="--link-color: #6c9f91;">Contact</a>
       </div>
     </nav>
     <main>
@@ -490,11 +494,14 @@
           </aside>
         </div>
 
-        <aside class="contact" id="contact">
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <aside class="contact">
           <!-- Icon recomandat: WhatsApp alb pe fundal coral. -->
           <img class="contact__whatsapp" src="icon/icon-whatsapp-contact.png" alt="WhatsApp" title="Icon WhatsApp pentru contact — PNG: 376 × 342 px" />
           <div>
-            <h2>Hai să <span>discutăm</span> despre proiectul tău!</h2>
+            <h2 id="contact-title">Hai să <span>discutăm</span> despre proiectul tău!</h2>
             <a class="contact__cta" href="https://wa.me/40742804731" target="_blank" rel="noopener" aria-label="Deschide conversația WhatsApp cu numărul 0742 804 731"><span>Scrie-mi pe WhatsApp</span><strong>0742 804 731</strong></a>
             <div class="contact__line"></div>
             <p>Îți pregătesc <strong style="color: #6c9f91;">gratuit</strong> o mostră cu felul în care ar putea arăta website-ul tău.</p>
@@ -503,6 +510,7 @@
           <img class="contact__laptop" src="icon/ilustratie-laptop-cu-inima.png" alt="Laptop decorativ cu inimă" title="Ilustrație laptop cu inimă și accente mint — PNG: 366 × 342 px" />
         </aside>
 
+        <p class="control__footer"><span>♡</span> &nbsp; Cu grijă pentru oameni mici și mari.</p>
         <p class="control__footer"><span>♡</span> &nbsp; Cu grijă pentru oameni mici și mari.</p>
       </section>
     </main>
