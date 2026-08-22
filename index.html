@@ -36,13 +36,7 @@
       .hero__intro { max-width: 20rem; margin: 1.6rem 0 0; font-size: 1.05rem; line-height: 1.4; }
       .hero__brand-line { max-width: 20rem; margin: 1rem 0 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; line-height: 1.2; }
       .hero__intro::after { display: block; width: 8rem; height: .35rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
-      .hero__visual { position: relative; z-index: 1; display: grid; width: min(calc(100% + 2rem), 34rem); max-width: none; min-height: 0; margin: .6rem -1rem -1rem; }
-      .hero__visual-video, .hero__visual-final { grid-area: 1 / 1; display: block; width: 100%; height: 100%; border: 0; background: transparent; object-fit: contain; transition: opacity .45s cubic-bezier(.45, 0, .55, 1); }
-      .hero__visual-video { position: relative; z-index: 2; opacity: 1; }
-      .hero__visual-video--fallback { mix-blend-mode: screen; }
-      .hero__visual-final { position: relative; z-index: 1; opacity: 0; }
-      .hero__visual.is-complete .hero__visual-video { opacity: 0; }
-      .hero__visual.is-complete .hero__visual-final { opacity: 1; }
+      .hero__visual { position: relative; z-index: 1; display: block; width: min(calc(100% + 2rem), 34rem); max-width: none; min-height: 0; margin: .6rem -1rem -1rem; border: 0; background: transparent; object-fit: contain; }
       .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
       .hero__leaf { position: absolute; bottom: -1rem; left: -1rem; z-index: -1; width: 10rem; height: 10rem; object-fit: contain; opacity: .7; }
       .problem { --section-color: #91b8ac; position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
@@ -305,14 +299,8 @@
           <p class="hero__intro">Cald, profesionist și ușor de folosit.<br />Eu mă ocup de partea tehnică. Tu rămâi concentrat pe oamenii cu care lucrezi.</p>
           <p class="hero__brand-line">Un website pe măsura grijii pe care o pui în munca ta.</p>
         </div>
-        <!-- Animație cu mockup-ul website-ului care se construiește pe laptop și telefon. -->
-        <div class="hero__visual">
-          <video class="hero__visual-video" muted playsinline preload="auto" poster="icon/poster-hero-mockup-website-aparitie-transparent.webp" aria-label="Mockup animat al unui website pentru copii, afișat pe laptop și telefon">
-            <source src="icon/animatie-hero-mockup-website-aparitie-transparent.webm" type="video/webm; codecs=vp9" />
-            <source src="icon/animatie-hero-mockup-website-aparitie-fallback.mp4" type="video/mp4" />
-          </video>
-          <img loading="eager" decoding="async" fetchpriority="high" class="hero__visual-final" src="icon/mockup-hero-website-final-curat.webp" alt="Mockup final curat al website-ului, afișat pe laptop și telefon" />
-        </div>
+        <!-- Mockup final al website-ului, afișat pe laptop și telefon. -->
+        <img loading="eager" decoding="async" fetchpriority="high" class="hero__visual" src="icon/mockup-hero-website-final-curat.webp" alt="Mockup final al website-ului, afișat pe laptop și telefon" />
         <!-- Element decorativ: inimă desenată manual, în coral. -->
         <img loading="eager" decoding="async" class="hero__heart" src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
         <!-- Element decorativ: ramură cu frunze, în tonuri mint. -->
@@ -629,60 +617,24 @@
       window.addEventListener("resize", () => moveIndicator(linkFor.get(activeId)));
 
       const heroVisual = document.querySelector(".hero__visual");
-      const heroVideo = document.querySelector(".hero__visual-video");
-      const heroFinal = document.querySelector(".hero__visual-final");
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      if (heroVideo) {
-        let heroCompletionRequested = false;
-        const showCleanHero = () => {
-          if (heroCompletionRequested) return;
-          heroCompletionRequested = true;
-          if (heroFinal?.complete) heroVisual?.classList.add("is-complete");
-          else heroFinal?.addEventListener("load", () => heroVisual?.classList.add("is-complete"), { once: true });
-        };
-
-        if (!heroVideo.canPlayType('video/webm; codecs="vp9"')) {
-          heroVideo.classList.add("hero__visual-video--fallback");
-        }
-
-        const startHeroVideo = () => {
-          heroVideo.currentTime = 0;
-          heroVideo.play().catch(showCleanHero);
-        };
-
-        if (prefersReducedMotion) {
-          showCleanHero();
-        } else if (heroVideo.readyState >= 2) {
-          startHeroVideo();
-        } else {
-          heroVideo.addEventListener("canplay", startHeroVideo, { once: true });
-        }
-
-        heroVideo.addEventListener("timeupdate", () => {
-          if (heroVideo.duration - heroVideo.currentTime < .65) showCleanHero();
-        });
-        heroVideo.addEventListener("ended", () => {
-          heroVideo.pause();
-          showCleanHero();
-        });
-      }
-
       const contactVideo = document.querySelector(".contact__laptop");
       let contactVideoStarted = false;
 
-      if (contactVideo && !contactVideo.canPlayType('video/webm; codecs="vp9"')) {
-        contactVideo.classList.add("contact__laptop--fallback");
-      }
-
-      if (contactVideo && "IntersectionObserver" in window) {
-        const contactVideoLoader = new IntersectionObserver((entries, observer) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
+      const loadBelowFoldAssets = () => {
+        document.querySelectorAll("img[loading=\"lazy\"]").forEach((image) => {
+          image.loading = "eager";
+        });
+        if (contactVideo) {
           contactVideo.preload = "auto";
           contactVideo.load();
-          observer.disconnect();
-        }, { rootMargin: "700px 0px" });
-        contactVideoLoader.observe(contactVideo);
+        }
+      };
+
+      if (heroVisual?.complete) loadBelowFoldAssets();
+      else heroVisual?.addEventListener("load", loadBelowFoldAssets, { once: true });
+
+      if (contactVideo && !contactVideo.canPlayType('video/webm; codecs="vp9"')) {
+        contactVideo.classList.add("contact__laptop--fallback");
       }
 
       const playContactVideo = () => {
