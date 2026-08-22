@@ -16,11 +16,12 @@
       .site-nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 1rem; min-height: 4.25rem; padding: .7rem 1.35rem; border-bottom: 1px solid rgba(21, 45, 87, .1); background: rgba(248, 243, 235, .94); backdrop-filter: blur(14px); }
       .site-nav__brand { display: flex; flex: 0 0 auto; align-items: center; gap: .5rem; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; text-decoration: none; }
       .site-nav__brand img { width: 2rem; height: 2rem; object-fit: contain; }
-      .site-nav__links { display: flex; flex: 1 1 auto; gap: .35rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+      .site-nav__links { position: relative; display: flex; flex: 1 1 auto; gap: .35rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
       .site-nav__links::-webkit-scrollbar { display: none; }
-      .site-nav__links a { flex: 0 0 auto; padding: .55rem .7rem; border: 1px solid transparent; border-radius: 999px; color: var(--navy); font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .site-nav__links a { position: relative; z-index: 1; flex: 0 0 auto; padding: .55rem .7rem; border: 1px solid transparent; border-radius: 999px; color: var(--navy); font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; transition: color .55s cubic-bezier(.45, 0, .55, 1), transform .55s cubic-bezier(.45, 0, .55, 1); }
       .site-nav__links a:hover, .site-nav__links a:focus-visible { outline: none; color: var(--link-color); background: color-mix(in srgb, var(--link-color) 14%, transparent); }
-      .site-nav__links a.is-active { border-color: var(--link-color); color: var(--link-color); background: color-mix(in srgb, var(--link-color) 14%, transparent); }
+      .site-nav__links a.is-active { border-color: transparent; color: var(--link-color); transform: translateY(-1px); }
+      .site-nav__indicator { position: absolute; top: 0; left: 0; z-index: 0; width: 0; height: 100%; border: 1px solid var(--indicator-color, var(--coral)); border-radius: 999px; background: color-mix(in srgb, var(--indicator-color, var(--coral)) 14%, transparent); opacity: 0; pointer-events: none; transform: translateX(0); transition: left .7s cubic-bezier(.45, 0, .55, 1), width .7s cubic-bezier(.45, 0, .55, 1), background-color .7s cubic-bezier(.45, 0, .55, 1), border-color .7s cubic-bezier(.45, 0, .55, 1); }
       .hero { --section-color: #ed795f; position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
       .hero::before { position: absolute; z-index: -1; top: -8rem; right: -10rem; width: 22rem; height: 30rem; border-radius: 48% 52% 56% 44%; background: rgba(255, 255, 255, .72); content: ""; }
       .hero__content { position: relative; z-index: 1; max-width: 40rem; }
@@ -151,6 +152,7 @@
         .site-nav__brand img { width: 2.35rem; height: 2.35rem; }
         .site-nav__links { justify-content: flex-end; gap: .5rem; }
         .site-nav__links a { padding: .65rem .85rem; font-size: .82rem; }
+        .site-nav__indicator { top: 0; }
         .hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(26rem, 1.18fr); align-items: center; gap: 2rem; padding: 5rem clamp(3rem, 8vw, 8rem); }
         .hero__content { max-width: 38rem; }
         .eyebrow { margin-bottom: 2.5rem; font-size: .88rem; }
@@ -230,6 +232,7 @@
         <span>Cu grijă</span>
       </a>
       <div class="site-nav__links">
+        <span class="site-nav__indicator" aria-hidden="true"></span>
         <a href="#acasa" style="--link-color: #ed795f;">Acasă</a>
         <a href="#problema" style="--link-color: #6c9f91;">Problema</a>
         <a href="#include" style="--link-color: #b4862d;">Ce includ</a>
@@ -496,8 +499,26 @@
       const links = [...document.querySelectorAll(".site-nav__links a")];
       const linkFor = new Map(links.map((link) => [link.getAttribute("href").slice(1), link]));
 
+      const indicator = document.querySelector(".site-nav__indicator");
+      let activeId = "";
+
+      const moveIndicator = (link) => {
+        if (!link || !indicator) return;
+        indicator.style.setProperty("--indicator-color", getComputedStyle(link).getPropertyValue("--link-color"));
+        indicator.style.left = `${link.offsetLeft}px`;
+        indicator.style.width = `${link.offsetWidth}px`;
+        indicator.style.opacity = "1";
+      };
+
       const activateSection = (id) => {
-        links.forEach((link) => link.classList.toggle("is-active", link === linkFor.get(id)));
+        const activeLink = linkFor.get(id);
+        if (!activeLink || activeId === id) return;
+        activeId = id;
+        links.forEach((link) => link.classList.toggle("is-active", link === activeLink));
+        moveIndicator(activeLink);
+        if (window.matchMedia("(max-width: 699px)").matches) {
+          activeLink.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
       };
 
       const observer = new IntersectionObserver((entries) => {
@@ -507,6 +528,7 @@
 
       sections.forEach((section) => observer.observe(section));
       activateSection("acasa");
+      window.addEventListener("resize", () => moveIndicator(linkFor.get(activeId)));
     </script>
   </body>
 </html>
