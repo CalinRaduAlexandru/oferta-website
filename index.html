@@ -497,7 +497,7 @@
       </section>
     </main>
     <script>
-      const sections = [...document.querySelectorAll("main > section")];
+      const sections = [...document.querySelectorAll("main > section, #contact")];
       const links = [...document.querySelectorAll(".site-nav__links a")];
       const linkFor = new Map(links.map((link) => [link.getAttribute("href").slice(1), link]));
 
