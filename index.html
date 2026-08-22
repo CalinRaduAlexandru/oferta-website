@@ -28,12 +28,13 @@
       .site-nav__indicator { position: absolute; top: 0; left: -2rem; z-index: 0; width: 0; height: 100%; border: 1px solid var(--indicator-color, var(--coral)); border-radius: 999px; background: color-mix(in srgb, var(--indicator-color, var(--coral)) 14%, transparent); box-shadow: 0 4px 16px color-mix(in srgb, var(--indicator-color, var(--coral)) 18%, transparent); opacity: 0; pointer-events: none; transform: translateX(0); transition: left .9s cubic-bezier(.22, 1, .36, 1), width .9s cubic-bezier(.22, 1, .36, 1), background-color .9s cubic-bezier(.22, 1, .36, 1), border-color .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s cubic-bezier(.22, 1, .36, 1); }
       .hero { --section-color: #ed795f; position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
       .hero::before { position: absolute; z-index: -1; top: -8rem; right: -10rem; width: 22rem; height: 30rem; border-radius: 48% 52% 56% 44%; background: rgba(255, 255, 255, .72); content: ""; }
-      .hero__content { position: relative; z-index: 1; max-width: 40rem; }
+      .hero__content { position: relative; z-index: 1; width: 100%; max-width: 40rem; }
       .eyebrow { display: inline-block; margin: 0 0 1.8rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; line-height: 1.45; text-transform: uppercase; }
       .eyebrow::after { display: block; width: 9rem; height: .18rem; margin-top: .65rem; border-radius: 100%; background: var(--coral); content: ""; transform: rotate(-1deg); }
-      h1 { max-width: 34rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.45rem, 11vw, 4rem); font-weight: 700; letter-spacing: -.055em; line-height: .94; }
+      h1 { max-width: 21rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 8.6vw, 4rem); font-weight: 700; letter-spacing: -.055em; line-height: .94; }
       h1 span { color: var(--coral); }
-      .hero__intro { max-width: 22rem; margin: 1.6rem 0 0; font-size: 1.05rem; line-height: 1.4; }
+      .hero__intro { max-width: 20rem; margin: 1.6rem 0 0; font-size: 1.05rem; line-height: 1.4; }
+      .hero__brand-line { max-width: 20rem; margin: 1rem 0 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; line-height: 1.2; }
       .hero__intro::after { display: block; width: 8rem; height: .35rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
       .hero__visual { position: relative; z-index: 1; display: grid; width: min(calc(100% + 2rem), 34rem); max-width: none; min-height: 0; margin: .6rem -1rem -1rem; }
       .hero__visual-video, .hero__visual-final { grid-area: 1 / 1; display: block; width: 100%; height: 100%; border: 0; background: transparent; object-fit: contain; transition: opacity .45s cubic-bezier(.45, 0, .55, 1); }
@@ -106,8 +107,10 @@
       .maintenance__price { margin: 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.8rem; font-weight: 700; }
       .maintenance__price span { color: var(--navy); font-family: Arial, sans-serif; font-size: 1rem; font-weight: 400; }
       .maintenance__detail { margin: .35rem 0 0; font-size: .92rem; line-height: 1.35; }
+      .maintenance__detail span { color: #6c9f91; font-weight: 700; }
       .pricing__note { display: flex; gap: .5rem; align-items: flex-start; margin: 1rem 1rem 0; font-size: .85rem; line-height: 1.4; }
       .pricing__note img { flex: 0 0 auto; width: 1.2rem; height: 1.2rem; object-fit: contain; }
+      .pricing__model { margin: 1.1rem 1rem 0; color: #53627b; font-size: .9rem; line-height: 1.45; }
       .pricing__promise { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: center; margin: 2.5rem 0; }
       .pricing__promise img { width: 3rem; height: 3rem; object-fit: contain; }
       .pricing__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; line-height: 1.2; }
@@ -155,6 +158,8 @@
       .contact h2 { max-width: 35rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.35rem, 10vw, 4rem); letter-spacing: -.05em; line-height: .98; }
       .contact h2 span { color: var(--coral); }
       .contact p { margin: 0; font-size: 1.08rem; line-height: 1.45; }
+      .contact__lead { max-width: 31rem; margin-top: 1rem !important; color: #53627b; }
+      .contact__detail { max-width: 30rem; margin-top: 1rem !important; color: #53627b; font-size: .95rem !important; }
       .contact__whatsapp-row { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; }
       .contact__cta { display: inline-flex; flex-direction: column; align-items: flex-start; gap: .1rem; width: fit-content; padding: 0 0 .45rem; border-bottom: 2px solid var(--coral); color: var(--navy); line-height: 1.15; text-decoration: none; transition: color .3s ease-in-out, border-color .3s ease-in-out, transform .3s ease-in-out; }
       .contact__cta span { color: #6c9f91; font-size: 1rem; font-weight: 400; }
@@ -190,7 +195,8 @@
         .hero__content { max-width: 38rem; }
         .eyebrow { margin-bottom: 2.5rem; font-size: .88rem; }
         h1 { max-width: 44rem; font-size: clamp(2.8rem, 4.8vw, 4.75rem); }
-        .hero__intro { margin-top: 2rem; font-size: 1.2rem; }
+        .hero__intro { max-width: 26rem; margin-top: 2rem; font-size: 1.2rem; }
+        .hero__brand-line { max-width: 24rem; }
         .hero__visual { justify-self: center; width: min(100%, 36rem); min-height: 0; margin: 0; }
         .hero__heart { top: 12%; right: 6%; width: 6rem; height: 6rem; }
         .hero__leaf { width: 16rem; height: 16rem; }
@@ -294,9 +300,10 @@
     <main>
       <section class="hero" id="acasa" aria-labelledby="hero-title">
         <div class="hero__content">
-          <p class="eyebrow">O prezență online<br />care te reprezintă</p>
-          <h1 id="hero-title">Un website<br />pe măsura <span>grijii</span><br />pe care o pui în<br />munca ta<span>.</span></h1>
-          <p class="hero__intro">Cald. Profesionist. Primitor.<br />Construit în jurul identității tale.</p>
+          <p class="eyebrow">Website-uri pentru profesioniștii<br />care lucrează cu copii</p>
+          <h1 id="hero-title">Un website care<br />îi ajută pe părinți<br />să aibă <span>încredere<br />în tine.</span></h1>
+          <p class="hero__intro">Cald, profesionist și ușor de folosit.<br />Eu mă ocup de partea tehnică. Tu rămâi concentrat pe oamenii cu care lucrezi.</p>
+          <p class="hero__brand-line">Un website pe măsura grijii pe care o pui în munca ta.</p>
         </div>
         <!-- Animație cu mockup-ul website-ului care se construiește pe laptop și telefon. -->
         <div class="hero__visual">
@@ -322,8 +329,8 @@
 
         <div class="problem__layout">
           <div class="problem__content">
-            <h2 class="problem__heading" id="problem-title">Ai grijă de copii.<br />Dar cine are grijă de <span>prezența</span> ta online?</h2>
-            <p class="problem__lead">Fără un website profesionist, pierzi încrederea părinților și timpul tău prețios.</p>
+            <h2 class="problem__heading" id="problem-title">Părinții te cunosc înainte să vă <span>vorbiți.</span></h2>
+            <p class="problem__lead">De multe ori, primul contact cu tine se întâmplă pe Google, Instagram sau printr-un link primit de la cineva. Un website bun îi ajută să găsească într-un singur loc cine ești, cum lucrezi și cum pot ajunge la tine.</p>
           </div>
 
           <!-- Fotografie recomandată: psiholog lucrând cu un copil într-un cabinet cald. -->
@@ -333,22 +340,22 @@
             <li class="problem__item">
               <!-- Icon recomandat: persoane care caută un specialist. -->
               <img loading="lazy" decoding="async" src="icon/icon-parinte-copil.png" alt="" title="Icon părinte și copil pentru relația cu familiile — PNG: 475 × 475 px" />
-              <p><strong>Părinții te caută online</strong><span>și nu știu cine ești și cum poți să îi ajuți.</span></p>
+              <p><strong>Părintele vrea să te cunoască înainte să te contacteze</strong><span>Găsește imediat cine ești, cum lucrezi și pentru cine sunt serviciile tale.</span></p>
             </li>
             <li class="problem__item">
               <!-- Icon recomandat: ceas pentru timpul pierdut. -->
               <img loading="lazy" decoding="async" src="icon/icon-ceas-timp-pierdut.png" alt="" title="Icon ceas pentru timpul pierdut — PNG: 475 × 475 px" />
-              <p><strong>Răspunzi la aceleași întrebări</strong><span>iar și iar, pierzând timp în fiecare zi.</span></p>
+              <p><strong>Nu mai explici aceleași lucruri de fiecare dată</strong><span>Program, servicii, adresă, întrebări frecvente și contact — toate într-un singur loc.</span></p>
             </li>
             <li class="problem__item">
               <!-- Icon recomandat: calendar pentru programări. -->
               <img loading="lazy" decoding="async" src="icon/icon-calendar-organizare.png" alt="" title="Icon calendar pentru organizarea programărilor — PNG: 475 × 475 px" />
-              <p><strong>Programările sunt haotice</strong><span>și apar suprapuneri sau ore pierdute.</span></p>
+              <p><strong>E mai ușor să ajungă la tine</strong><span>WhatsApp, hartă, formular sau programare online — exact acolo unde are nevoie.</span></p>
             </li>
             <li class="problem__item">
               <!-- Icon recomandat: inimă pentru încredere și empatie. -->
               <img loading="lazy" decoding="async" src="icon/icon-inima-incredere.png" alt="" title="Icon inimă pentru încredere și empatie — PNG: 475 × 475 px" />
-              <p><strong>Meriți să fii prezentat</strong><span>așa cum ești: profesionist, empatic, de încredere.</span></p>
+              <p><strong>Prezența ta online începe să semene cu munca ta reală</strong><span>Caldă, atentă și profesionistă — nu doar un profil social cu informații împrăștiate.</span></p>
             </li>
           </ul>
 
@@ -356,8 +363,8 @@
             <!-- Ilustrație recomandată: inimă cu raze, în mint. -->
             <img loading="lazy" decoding="async" src="icon/decor-inima-mint-cu-raze.png" alt="" title="Inimă decorativă mint cu raze — PNG: 1254 × 1254 px" />
             <div>
-              <h3>Eu îți construiesc un website<br />care inspiră încredere și aduce părinții mai aproape.</h3>
-              <p>Tu te concentrezi pe ceea ce contează cu adevărat:<em>copiii care au nevoie de grijă, răbdare și încredere.</em></p>
+              <h3>Le dai părinților un loc în care să te cunoască înainte să vă cunoașteți.</h3>
+              <p>Cine ești. Cum lucrezi. Cu ce îi poți ajuta. Cum pot ajunge la tine.<em>Simplu, clar și într-un loc care te reprezintă.</em></p>
             </div>
           </aside>
         </div>
@@ -372,7 +379,7 @@
         </div>
 
         <h2 class="offer__heading" id="offer-title">Ce îți construiesc<br />pentru <span>tine.</span></h2>
-        <p class="offer__intro">Un website complet, profesionist și ușor de folosit, adaptat activității tale și celor pe care îi ajuți.</p>
+        <p class="offer__intro">Construiesc în jurul activității tale un loc în care părinții găsesc ușor tot ce au nevoie ca să facă următorul pas.</p>
 
         <!-- Mockup recomandat: website prezentat pe laptop și telefon, într-un spațiu cald. -->
         <img loading="lazy" decoding="async" class="offer__mockup" src="icon/mockup-website-laptop-telefon-cabinet.png" alt="Website complet prezentat pe laptop și telefon într-un cabinet luminos" title="Mockup website complet pe laptop și telefon, într-un cabinet — PNG: 1161 × 1355 px" />
@@ -382,42 +389,42 @@
           <li class="offer__feature">
             <!-- Icon recomandat: design responsive pe mai multe dispozitive. -->
             <img loading="lazy" decoding="async" src="icon/icon-interfata-cu-cursor.png" alt="" title="Icon interfață și cursor pentru design responsive — PNG: 1254 × 1254 px" />
-            <div><h3>Design profesional<br />și responsive</h3><p>arată impecabil pe telefon, tabletă și desktop</p></div>
+            <div><h3>Arată bine oriunde este văzut</h3><p>Telefon, tabletă sau calculator — experiența rămâne clară și plăcută.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: creion pentru texte și conținut. -->
             <img loading="lazy" decoding="async" src="icon/icon-document-cu-creion.png" alt="" title="Icon document cu creion pentru texte și conținut — PNG: 1254 × 1254 px" />
-            <div><h3>Texte incluse</h3><p>îți ofer o primă sugestie de conținut, pe care o ajustăm împreună</p></div>
+            <div><h3>Nu trebuie să știi ce să scrii</h3><p>Pornesc eu de la o primă variantă de text, apoi o ajustăm împreună până sună ca tine.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: fotografie pentru galerie. -->
             <img loading="lazy" decoding="async" src="icon/icon-galerie-imagine.png" alt="" title="Icon galerie foto pentru servicii și momente importante — PNG: 1254 × 1254 px" />
-            <div><h3>Galerie foto</h3><p>prezinți frumos serviciile și momentele care contează</p></div>
+            <div><h3>Arăți cum lucrezi</h3><p>Imaginile potrivite îi ajută pe părinți să simtă atmosfera și grija pe care o oferi.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: calendar pentru programări. -->
             <img loading="lazy" decoding="async" src="icon/icon-calendar-programari-mint.png" alt="" title="Icon calendar pentru program și contact rapid — PNG: 1254 × 1254 px" />
-            <div><h3>Program și<br />contact rapid</h3><p>clienții te găsesc ușor și iau legătura rapid</p></div>
+            <div><h3>Părinții găsesc rapid următorul pas</h3><p>Program, contact, hartă și programări — exact unde au nevoie de ele.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: conversație pentru rețele sociale și hărți. -->
             <img loading="lazy" decoding="async" src="icon/icon-retele-sociale-harta.png" alt="" title="Icon conversație pentru rețele sociale și hartă — PNG: 1254 × 1254 px" />
-            <div><h3>Integrare rețele<br />sociale și hărți</h3><p>Google Maps, buton WhatsApp, rețele sociale</p></div>
+            <div><h3>Tot ce le trebuie, într-un singur loc</h3><p>Google Maps, WhatsApp, rețele sociale și informațiile importante despre tine.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: scut pentru securitate și backup. -->
             <img loading="lazy" decoding="async" src="icon/icon-securitate-cu-inima.png" alt="" title="Icon scut cu inimă pentru securitate și backup — PNG: 1254 × 1254 px" />
-            <div><h3>Securitate și<br />backup</h3><p>actualizări, protecție și backup regulat. Tu fără griji.</p></div>
+            <div><h3>Nu trebuie să ai grijă de partea tehnică</h3><p>Mă ocup de actualizări, securitate și backup. Tu fără griji.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: grafic pentru optimizare SEO. -->
             <img loading="lazy" decoding="async" src="icon/icon-optimizare-seo-grafic.png" alt="" title="Icon grafic pentru optimizare SEO — PNG: 1254 × 1254 px" />
-            <div><h3>Optimizat SEO</h3><p>pentru o vizibilitate mai bună în Google</p></div>
+            <div><h3>Pregătit să poată fi găsit pe Google</h3><p>Construiesc corect paginile și informațiile importante pentru motoarele de căutare.</p></div>
           </li>
           <li class="offer__feature">
             <!-- Icon recomandat: rotiță pentru administrare ușoară. -->
             <img loading="lazy" decoding="async" src="icon/icon-administrare-bagheta-magica.png" alt="" title="Icon baghetă magică pentru administrare ușoară — PNG: 1254 × 1254 px" />
-            <div><h3>Ușor de<br />administrat</h3><p>înveți cum să modifici singur textul și imaginile</p></div>
+            <div><h3>Rămâne ușor de folosit</h3><p>Înveți cum să modifici singur informațiile de bază, fără cod.</p></div>
           </li>
         </ul>
 
@@ -439,14 +446,14 @@
         <div class="pricing__main">
           <div class="pricing__intro">
             <h2 class="pricing__heading" id="pricing-title">Realizarea<br />website-ului tău:<br /><span>0 lei.</span></h2>
-            <p class="pricing__lead">Tu nu plătești pentru realizare.<br />Plătești doar cât mă ocup eu să rămână online, rapid și în siguranță.</p>
+            <p class="pricing__lead">Nu îți cer câteva mii de lei ca să pornim. Eu construiesc website-ul, iar tu plătești serviciul prin care îl țin online, actualizat și în siguranță.</p>
           </div>
 
           <!-- Fotografie recomandată: adult și copil lucrând împreună la o masă. -->
         <img loading="lazy" decoding="async" class="pricing__photo" src="icon/fotografie-femeie-copil-cabinet.png" alt="Adult și copil lucrând împreună la o masă într-un spațiu luminos" title="Fotografie adult și copil lucrând împreună într-un cabinet — PNG: 1365 × 1365 px" />
 
           <div class="maintenance">
-            <h3>Menținere și administrare*</h3>
+            <h3>Ca să rămână online</h3>
             <div class="maintenance__plans">
               <div class="maintenance__plan">
                 <img loading="lazy" decoding="async" src="icon/icon-calendar-programari-mint.png" alt="" title="Icon calendar pentru planul anual — PNG: 1254 × 1254 px" />
@@ -456,10 +463,11 @@
               <div class="maintenance__plan">
                 <img loading="lazy" decoding="async" src="icon/icon-securitate-cu-inima.png" alt="" title="Icon scut cu inimă pentru planul pe 4 ani — PNG: 1254 × 1254 px" />
                 <p class="maintenance__price">2.000 <span>lei / 5 ani</span></p>
-                <p class="maintenance__detail">plată în avans</p>
+                <p class="maintenance__detail">plată în avans<br /><span>Economisești 500 lei.</span></p>
               </div>
             </div>
             <p class="pricing__note"><img loading="lazy" decoding="async" src="icon/decor-asterisc-mint.png" alt="" title="Asterisc decorativ mint — PNG: 1254 × 1254 px" /> <span>Include domeniu, hosting, mentenanță tehnică, update-uri, backup și asistență.</span></p>
+            <p class="pricing__model">Prefer să construiesc relații pe termen lung, nu să îți cer o investiție mare înainte să avem un website împreună. Venitul meu vine din menținerea lui online și din intervențiile suplimentare de care vei avea nevoie în timp.</p>
           </div>
 
           <div class="pricing__promise">
@@ -474,12 +482,12 @@
           <article class="aftercare__item">
             <!-- Icon recomandat: administrare conținut cu creion. -->
             <img loading="lazy" decoding="async" src="icon/icon-document-cu-creion.png" alt="" title="Icon document cu creion pentru administrare conținut — PNG: 1254 × 1254 px" />
-            <div><h3>Îl poți administra singur</h3><p>Îți arăt cum să modifici ușor textele și imaginile. Rămâne 100% al tău.</p></div>
+            <div><h3>Nu rămâi blocat într-un abonament</h3><p>Îți arăt cum să actualizezi singur informațiile de bază. Site-ul rămâne 100% al tău.</p></div>
           </article>
           <article class="aftercare__item">
             <!-- Icon recomandat: megafon pentru intervenții suplimentare. -->
             <img loading="lazy" decoding="async" src="icon/icon-ajutor-megafon.png" alt="" title="Icon megafon pentru ajutor și intervenții suplimentare — PNG: 1254 × 1254 px" />
-            <div><h3>Ai nevoie de ajutor?</h3><p>Orice intervenție suplimentară este tarifată de la <span style="color: var(--coral);">50 lei</span> în funcție de complexitate.</p></div>
+            <div><h3>Preferi să nu te ocupi tu?</h3><p>Mă poți chema oricând — intervențiile suplimentare pornesc de la <span style="color: var(--coral);">50 lei</span>, în funcție de complexitate.</p></div>
           </article>
         </div>
 
@@ -502,8 +510,8 @@
 
         <div class="control__main">
           <div class="control__intro">
-            <h2 class="control__heading" id="control-title">Tu îți modifici singur<br /><span>când ai nevoie.</span></h2>
-            <p class="control__lead">După predarea proiectului, îți arăt pas cu pas cum să schimbi textul și imaginile, rapid și intuitiv.</p>
+            <h2 class="control__heading" id="control-title">Schimbi un program?<br />Adaugi un serviciu?<br /><span>Vrei altă fotografie?</span></h2>
+            <p class="control__lead">Le poți modifica singur. La predare îți arăt exact cum. Fără cod. Fără cunoștințe tehnice.</p>
           </div>
 
           <!-- Fotografie recomandată: persoană care editează un website pe laptop. -->
@@ -513,24 +521,24 @@
             <li class="control__benefit">
               <!-- Icon recomandat: cursor și interfață simplă. -->
               <img loading="lazy" decoding="async" src="icon/icon-interfata-cu-cursor.png" alt="" title="Icon interfață simplă și intuitivă cu cursor — PNG: 1254 × 1254 px" />
-              <div><h3>Interfață simplă și prietenoasă</h3><p>Fără cunoștințe tehnice. Totul este intuitiv.</p></div>
+              <div><h3>Modifici fără cod</h3><p>Interfața este simplă și intuitivă, chiar dacă nu ai mai administrat un website.</p></div>
             </li>
             <li class="control__benefit">
               <!-- Icon recomandat: imagine pentru editarea fotografiilor. -->
               <img loading="lazy" decoding="async" src="icon/icon-galerie-imagine.png" alt="" title="Icon imagine pentru editarea textului și imaginilor — PNG: 1254 × 1254 px" />
-              <div><h3>Schimbi textul și imaginile</h3><p>Actualizezi oricând informațiile despre tine și serviciile tale.</p></div>
+              <div><h3>Actualizezi ce s-a schimbat</h3><p>Program, servicii, fotografii sau informații despre tine — oricând ai nevoie.</p></div>
             </li>
             <li class="control__benefit">
               <!-- Icon recomandat: baghetă magică pentru control și flexibilitate. -->
               <img loading="lazy" decoding="async" src="icon/icon-administrare-bagheta-magica.png" alt="" title="Icon baghetă magică pentru control și flexibilitate — PNG: 1254 × 1254 px" />
-              <div><h3>Ai mereu controlul</h3><p>Site-ul tău rămâne mereu actual și relevant.</p></div>
+              <div><h3>Rămâne al tău</h3><p>Nu depinzi de nimeni pentru fiecare cuvânt pe care vrei să-l schimbi.</p></div>
             </li>
           </ul>
 
           <aside class="control__promise">
             <!-- Element decorativ: ramură fină în tonuri mint. -->
             <img loading="lazy" decoding="async" src="icon/decor-ramura-frunze-mint-scurta.png" alt="" title="Ramură decorativă scurtă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
-            <p><strong>Independență. Flexibilitate.</strong><br />Fără să depinzi de nimeni.</p>
+            <p><strong>Site-ul tău. Controlul tău.</strong><br />Eu rămân aproape doar când ai nevoie de mine.</p>
           </aside>
         </div>
 
@@ -541,16 +549,14 @@
           <!-- Icon recomandat: WhatsApp alb pe fundal coral. -->
           <img loading="lazy" decoding="async" class="contact__leaf" src="icon/decor-ramura-frunze-mint-lunga.png" alt="" title="Ramură decorativă lungă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
           <div class="contact__content">
-            <h2 id="contact-title">Hai să <span>discutăm</span> despre proiectul tău!</h2>
+            <h2 id="contact-title">Îți pregătesc <span>gratuit</span> o primă mostră.</h2>
+            <p class="contact__lead">Fără obligații și fără să trebuiască să decizi acum dacă lucrăm împreună.</p>
             <div class="contact__whatsapp-row">
               <img loading="lazy" decoding="async" class="contact__whatsapp" src="icon/icon-whatsapp-contact.png" alt="WhatsApp" title="Icon WhatsApp pentru contact — PNG: 376 × 342 px" />
               <a class="contact__cta" href="https://wa.me/40742804731" aria-label="Deschide conversația WhatsApp cu numărul 0742 804 731"><span>Scrie-mi pe WhatsApp</span><strong>0742 804 731</strong></a>
             </div>
             <div class="contact__line"></div>
-            <div class="contact__message">
-              <img loading="lazy" decoding="async" class="contact__message-leaf" src="icon/decor-ramura-frunze-mint-scurta.png" alt="" title="Ramură decorativă scurtă cu frunze în tonuri mint — PNG: 1254 × 1254 px" />
-              <p>Îți pregătesc <strong>gratuit</strong> o mostră cu felul în care ar putea arăta website-ul tău.</p>
-            </div>
+            <p class="contact__detail">Spune-mi doar cu ce lucrezi și trimite-mi pagina ta actuală, dacă ai una. De restul mă ocup eu.</p>
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
           <video class="contact__laptop" muted playsinline preload="none" poster="icon/poster-laptop-inima-contact-transparent.png" aria-label="Animație cu laptop decorativ și inimă">
