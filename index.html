@@ -58,7 +58,7 @@
       .problem__heading span { color: var(--coral); }
       .problem__lead { max-width: 31rem; margin: 1.6rem 0 0; font-size: 1.08rem; line-height: 1.45; }
       .problem__lead::after { display: block; width: 7rem; height: .3rem; margin-top: 1rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
-      .problem__photo { display: block; width: 100%; min-height: 21rem; margin: 2.5rem 0 2rem; border-radius: 48% 48% 0 0; object-fit: cover; }
+      .problem__photo { display: block; width: 100%; min-height: 21rem; margin: 2.5rem 0 2rem; border-radius: 48% 48% 2rem 1.25rem; object-fit: cover; }
       .problem__list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
       .problem__item { display: grid; grid-template-columns: 5rem 1fr; gap: 1rem; align-items: center; min-height: 7.5rem; padding: 1rem 0; border-bottom: 1px solid rgba(21, 45, 87, .12); }
       .problem__item img { width: 4.5rem; height: 4.5rem; object-fit: contain; }
@@ -101,7 +101,7 @@
       .pricing__heading span { color: var(--coral); }
       .pricing__lead { max-width: 25rem; margin: 1.7rem 0 0; font-size: 1.08rem; line-height: 1.5; }
       .pricing__lead::after { display: block; width: 8rem; height: .3rem; margin-top: 1rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
-      .pricing__photo { display: block; width: 100%; min-height: 20rem; margin: 2.5rem 0; border-radius: 50% 50% 0 0; object-fit: cover; }
+      .pricing__photo { display: block; width: 100%; min-height: 20rem; margin: 2.5rem 0; border-radius: 50% 50% 2rem 1.25rem; object-fit: cover; }
       .maintenance { padding: 1.5rem; border: 1px solid rgba(145, 184, 172, .6); border-radius: 2rem; background: rgba(255, 255, 255, .35); }
       .maintenance h3 { margin: 0 0 1.5rem; color: #4d8176; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
       .maintenance__plans { display: grid; grid-template-columns: 1fr 1fr; }
@@ -156,7 +156,7 @@
       .control__heading .control__question--accent { color: var(--coral); }
       .control__heading::after { display: block; width: 8rem; height: .3rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
       .control__lead { max-width: 26rem; margin: 1.7rem 0 0; font-size: 1.08rem; line-height: 1.5; }
-      .control__photo { display: block; width: 100%; min-height: 21rem; margin: 2.5rem 0; border-radius: 44% 44% 0 0; object-fit: cover; }
+      .control__photo { display: block; width: 100%; min-height: 21rem; margin: 2.5rem 0; border-radius: 44% 44% 2rem 1.25rem; object-fit: cover; }
       .control__benefits { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
       .control__benefit { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; align-items: center; min-height: 7.5rem; padding: 1rem 0; border-bottom: 1px solid rgba(21, 45, 87, .12); }
       .control__benefit img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
@@ -222,7 +222,7 @@
         .problem__topline { margin-bottom: 4rem; font-size: .88rem; }
         .problem__topline img { width: 4rem; height: 4rem; }
         .problem__layout { display: grid; grid-template-columns: minmax(0, .95fr) minmax(24rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
-        .problem__photo { grid-column: 2; grid-row: 1 / span 2; height: 48rem; min-height: 0; margin: 0; border-radius: 48% 48% 0 0; }
+        .problem__photo { grid-column: 2; grid-row: 1 / span 2; height: 48rem; min-height: 0; margin: 0; border-radius: 48% 48% 3rem 2rem; }
         .problem__content { grid-column: 1; grid-row: 1; }
         .problem__list { grid-column: 1; grid-row: 2; }
         .problem__item { grid-template-columns: 6rem 1fr; min-height: 8rem; }
@@ -256,7 +256,7 @@
         .pricing__intro { max-width: 39rem; }
         .pricing__lead { font-size: 1.2rem; }
         .pricing__main { display: grid; grid-template-columns: minmax(0, .95fr) minmax(25rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
-        .pricing__photo { grid-column: 2; grid-row: 1 / span 2; height: 42rem; min-height: 0; margin: 0; }
+        .pricing__photo { grid-column: 2; grid-row: 1 / span 2; height: 42rem; min-height: 0; margin: 0; border-radius: 50% 50% 3rem 2rem; }
         .pricing__intro { grid-column: 1; grid-row: 1; }
         .maintenance { grid-column: 1; grid-row: 2; padding: 2rem; }
         .maintenance__plan--featured img { max-width: 22rem; }
@@ -278,7 +278,7 @@
         .control__topline img { width: 4rem; height: 4rem; }
         .control__main { display: grid; grid-template-columns: minmax(0, .9fr) minmax(25rem, .85fr); gap: clamp(3rem, 7vw, 7rem); align-items: start; }
         .control__content { grid-column: 1; grid-row: 1; }
-        .control__photo { grid-column: 2; grid-row: 1; height: 43rem; min-height: 0; margin: 0; }
+        .control__photo { grid-column: 2; grid-row: 1; height: 43rem; min-height: 0; margin: 0; border-radius: 44% 44% 3rem 2rem; }
         .control__lead { font-size: 1.2rem; }
         .control__benefits { grid-column: 1; grid-row: 2; }
         .control__benefit { grid-template-columns: 5rem 1fr; min-height: 9rem; }
