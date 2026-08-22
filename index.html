@@ -3,16 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <meta name="description" content="Website-uri calde și profesioniste pentru cei care lucrează cu copii." />
+    <title>Website-uri pentru cei care lucrează cu copii</title>
     <style>
-      :root { color-scheme: dark; font-family: system-ui, sans-serif; }
-      body { display: grid; min-height: 100vh; margin: 0; place-items: center; background: #111827; color: #f9fafb; }
-      h1 { font-size: clamp(2.5rem, 8vw, 6rem); margin: 0; }
+      :root { --navy: #152d57; --coral: #ed795f; --cream: #f8f3eb; --mint: #91b8ac; font-family: Arial, Helvetica, sans-serif; color: var(--navy); background: var(--cream); }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--cream); }
+      img { max-width: 100%; }
+      .hero { position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
+      .hero::before { position: absolute; z-index: -1; top: -8rem; right: -10rem; width: 22rem; height: 30rem; border-radius: 48% 52% 56% 44%; background: rgba(255, 255, 255, .72); content: ""; }
+      .hero__content { position: relative; z-index: 1; max-width: 40rem; }
+      .eyebrow { display: inline-block; margin: 0 0 2.4rem; font-size: .92rem; font-weight: 700; letter-spacing: .18em; line-height: 1.5; text-transform: uppercase; }
+      .eyebrow::after { display: block; width: 9rem; height: .18rem; margin-top: .65rem; border-radius: 100%; background: var(--coral); content: ""; transform: rotate(-1deg); }
+      h1 { max-width: 34rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(3.35rem, 15vw, 6.75rem); font-weight: 700; letter-spacing: -.07em; line-height: .9; }
+      h1 span { color: var(--coral); }
+      .hero__intro { max-width: 22rem; margin: 2rem 0 0; font-size: 1.35rem; line-height: 1.35; }
+      .hero__intro::after { display: block; width: 8rem; height: .35rem; margin-top: 1.15rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
+      .hero__visual { position: relative; z-index: 1; display: block; width: min(100%, 32rem); min-height: 19rem; margin: 2.25rem auto 0; border: 0; object-fit: contain; }
+      .hero__heart { position: absolute; top: 8.5rem; right: 1.3rem; z-index: 2; width: 4.5rem; height: 4.5rem; object-fit: contain; }
+      .hero__leaf { position: absolute; bottom: -1rem; left: -1rem; z-index: -1; width: 10rem; height: 10rem; object-fit: contain; opacity: .7; }
+      @media (min-width: 700px) {
+        .hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(26rem, 1.18fr); align-items: center; gap: 2rem; padding: 5rem clamp(3rem, 8vw, 8rem); }
+        .hero__content { max-width: 38rem; }
+        .eyebrow { margin-bottom: 3.2rem; font-size: 1.05rem; }
+        .hero__intro { margin-top: 2.5rem; font-size: 1.5rem; }
+        .hero__visual { width: 100%; min-height: 34rem; margin: 0; }
+        .hero__heart { top: 12%; right: 6%; width: 6rem; height: 6rem; }
+        .hero__leaf { width: 16rem; height: 16rem; }
+      }
     </style>
   </head>
   <body>
     <main>
-      <h1>Hello World</h1>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <p class="eyebrow">Website-uri pentru cei<br />care lucrează cu copii</p>
+          <h1 id="hero-title">Un website<br />pe măsura <span>grijii</span><br />pe care o pui în<br />munca ta<span>.</span></h1>
+          <p class="hero__intro">Cald. Profesionist. Primitor.<br />Construit în jurul identității tale.</p>
+        </div>
+        <!-- Imagine recomandată: hero-website-copii-1200x1400.png -->
+        <img class="hero__visual" src="images/hero-website-copii-1200x1400.png" alt="Exemplu de website pentru un specialist care lucrează cu copii" title="Încarcă PNG: 1200 × 1400 px" />
+        <!-- Icon recomandat: icon-heart-coral-96x96.png -->
+        <img class="hero__heart" src="images/icon-heart-coral-96x96.png" alt="" title="Încarcă PNG: 96 × 96 px" />
+        <!-- Element decorativ recomandat: decor-frunze-mint-320x320.png -->
+        <img class="hero__leaf" src="images/decor-frunze-mint-320x320.png" alt="" title="Încarcă PNG: 320 × 320 px" />
+      </section>
     </main>
   </body>
 </html>
