@@ -143,7 +143,7 @@
       .contact { position: relative; display: grid; gap: 1.5rem; overflow: hidden; padding: 2.2rem 1.35rem 1.5rem; border: 1px solid rgba(145, 184, 172, .38); border-radius: 2rem; background: #fbf7ef; box-shadow: 0 16px 35px rgba(21, 45, 87, .12); }
       .contact::before { position: absolute; top: -5rem; left: -4rem; width: 12rem; height: 11rem; border-radius: 50%; background: rgba(145, 184, 172, .12); content: ""; }
       .contact::after { position: absolute; right: -4rem; bottom: -5rem; width: 14rem; height: 12rem; border-radius: 60% 0 0; background: rgba(145, 184, 172, .2); content: ""; }
-      .contact__leaf { position: absolute; top: -1.5rem; right: -.5rem; z-index: 1; width: 6rem; height: 6rem; object-fit: contain; }
+      .contact__leaf { display: none; position: absolute; top: -1.5rem; right: -.5rem; z-index: 1; width: 6rem; height: 6rem; object-fit: contain; }
       .contact__whatsapp { display: block; width: 4.75rem; height: 4.75rem; object-fit: contain; }
       .contact__content { position: relative; z-index: 2; }
       .contact h2 { max-width: 35rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.35rem, 10vw, 4rem); letter-spacing: -.05em; line-height: .98; }
@@ -242,7 +242,7 @@
         .contact p { font-size: 1.25rem; }
         .contact__cta strong { font-size: 2.1rem; }
         .contact__laptop { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
-        .contact__leaf { top: -1rem; right: 1rem; width: 9rem; height: 9rem; }
+        .contact__leaf { display: block; top: -1rem; right: 1rem; width: 9rem; height: 9rem; }
         .contact__message-leaf { width: 4.5rem; height: 4.5rem; }
         .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; border-top: 0; }
         .contact-section .contact { max-width: 78rem; margin: 0 auto; }
