@@ -44,6 +44,27 @@
       .problem__callout h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.5rem; line-height: 1.15; }
       .problem__callout p { margin: 0; font-size: 1.05rem; line-height: 1.45; }
       .problem__callout em { display: block; margin-top: .45rem; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; }
+      .offer { position: relative; overflow: hidden; padding: 3rem 1.35rem 4rem; background: var(--cream); }
+      .offer__topline { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+      .offer__topline img { width: 3.25rem; height: 3.25rem; object-fit: contain; }
+      .offer__number { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--coral); font-size: 1.25rem; letter-spacing: 0; }
+      .offer__number::after { width: 2.5rem; height: .12rem; background: var(--coral); content: ""; }
+      .offer__heading { max-width: 33rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.7rem, 12vw, 5rem); letter-spacing: -.065em; line-height: .95; }
+      .offer__heading span { color: var(--coral); }
+      .offer__heading::after { display: block; width: 8rem; height: .3rem; margin-top: 1.2rem; border-radius: 100%; background: var(--mint); content: ""; transform: rotate(-2deg); }
+      .offer__intro { max-width: 25rem; margin: 1.7rem 0 0; font-size: 1.08rem; line-height: 1.5; }
+      .offer__mockup { display: block; width: 100%; min-height: 20rem; margin: 2.5rem auto 3rem; object-fit: contain; }
+      .offer__included { display: flex; align-items: center; gap: .8rem; margin: 0 0 1rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; letter-spacing: .08em; text-align: center; text-transform: uppercase; }
+      .offer__included::before, .offer__included::after { flex: 1; height: 1px; background: rgba(21, 45, 87, .16); content: ""; }
+      .offer__features { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+      .offer__feature { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; align-items: start; padding: 1.25rem 0; border-bottom: 1px solid rgba(21, 45, 87, .12); }
+      .offer__feature img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
+      .offer__feature h3 { margin: .1rem 0 .35rem; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; line-height: 1.1; }
+      .offer__feature p { margin: 0; font-size: .98rem; line-height: 1.4; }
+      .offer__closing { display: grid; grid-template-columns: 4rem 1fr; gap: 1rem; align-items: center; margin: 2.5rem -1.35rem -4rem; padding: 2rem 1.35rem 2.5rem; border-radius: 50% 50% 0 0 / 20% 20% 0 0; background: rgba(255, 255, 255, .35); }
+      .offer__closing img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
+      .offer__closing p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; line-height: 1.15; }
+      .offer__closing strong { color: #6c9f91; }
       @media (min-width: 700px) {
         .hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(26rem, 1.18fr); align-items: center; gap: 2rem; padding: 5rem clamp(3rem, 8vw, 8rem); }
         .hero__content { max-width: 38rem; }
@@ -64,6 +85,20 @@
         .problem__item img { width: 5.25rem; height: 5.25rem; }
         .problem__callout { grid-column: 1 / -1; grid-row: 3; grid-template-columns: 7rem 1fr; align-items: center; margin-top: 4rem; padding: 2rem 3rem; border-radius: 2.5rem; }
         .problem__callout img { width: 5.5rem; height: 5.5rem; }
+        .offer { padding: 5rem clamp(3rem, 8vw, 8rem) 6rem; }
+        .offer__topline { margin-bottom: 4rem; font-size: .88rem; }
+        .offer__topline img { width: 4rem; height: 4rem; }
+        .offer__intro { font-size: 1.2rem; }
+        .offer__mockup { width: min(62rem, 100%); min-height: 38rem; margin: 3rem auto 4rem; }
+        .offer__included { margin-bottom: 2rem; font-size: 1.35rem; }
+        .offer__features { grid-template-columns: repeat(2, 1fr); }
+        .offer__feature { grid-template-columns: 5rem 1fr; min-height: 10rem; padding: 1.5rem 2rem 1.5rem 0; }
+        .offer__feature:nth-child(odd) { border-right: 1px solid rgba(21, 45, 87, .12); }
+        .offer__feature:nth-child(even) { padding-left: 2rem; }
+        .offer__feature img { width: 4.5rem; height: 4.5rem; }
+        .offer__closing { grid-template-columns: 7rem 1fr; gap: 2rem; margin: 4rem -8rem -6rem; padding: 3rem 8rem 4rem; }
+        .offer__closing img { width: 5.5rem; height: 5.5rem; }
+        .offer__closing p { font-size: 2rem; }
       }
     </style>
   </head>
@@ -132,6 +167,71 @@
             </div>
           </aside>
         </div>
+      </section>
+
+      <section class="offer" aria-labelledby="offer-title">
+        <div class="offer__topline">
+          <!-- Element decorativ: inimă desenată manual, în coral. -->
+          <img src="images/decor-inima-desenata-coral-96x96.png" alt="" title="Inimă decorativă desenată manual, coral — PNG recomandat: 96 × 96 px" />
+          <span>Website-uri pentru cei care lucrează cu copii</span>
+          <span class="offer__number">03</span>
+        </div>
+
+        <h2 class="offer__heading" id="offer-title">Ce îți construiesc<br />pentru <span>tine.</span></h2>
+        <p class="offer__intro">Un website complet, profesionist și ușor de folosit, adaptat activității tale și celor pe care îi ajuți.</p>
+
+        <!-- Mockup recomandat: website prezentat pe laptop și telefon, într-un spațiu cald. -->
+        <img class="offer__mockup" src="images/mockup-website-complet-laptop-telefon-cabinet-1600x1200.png" alt="Website complet prezentat pe laptop și telefon într-un cabinet luminos" title="Mockup website complet pe laptop și telefon, într-un cabinet — PNG recomandat: 1600 × 1200 px" />
+
+        <h3 class="offer__included">Fiecare website include:</h3>
+        <ul class="offer__features">
+          <li class="offer__feature">
+            <!-- Icon recomandat: design responsive pe mai multe dispozitive. -->
+            <img src="images/icon-design-responsive-dispozitive-160x160.png" alt="" title="Icon design responsive pentru telefon, tabletă și desktop — PNG recomandat: 160 × 160 px" />
+            <div><h3>Design profesional<br />și responsive</h3><p>arată impecabil pe telefon, tabletă și desktop</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: creion pentru texte și conținut. -->
+            <img src="images/icon-creion-texte-continut-160x160.png" alt="" title="Icon creion pentru texte și conținut — PNG recomandat: 160 × 160 px" />
+            <div><h3>Texte incluse</h3><p>îți ofer o primă sugestie de conținut, pe care o ajustăm împreună</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: fotografie pentru galerie. -->
+            <img src="images/icon-galerie-foto-160x160.png" alt="" title="Icon galerie foto pentru servicii și momente importante — PNG recomandat: 160 × 160 px" />
+            <div><h3>Galerie foto</h3><p>prezinți frumos serviciile și momentele care contează</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: calendar pentru programări. -->
+            <img src="images/icon-calendar-contact-rapid-160x160.png" alt="" title="Icon calendar pentru program și contact rapid — PNG recomandat: 160 × 160 px" />
+            <div><h3>Program și<br />contact rapid</h3><p>clienții te găsesc ușor și iau legătura rapid</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: conversație pentru rețele sociale și hărți. -->
+            <img src="images/icon-retele-sociale-harta-160x160.png" alt="" title="Icon conversație pentru rețele sociale și hartă — PNG recomandat: 160 × 160 px" />
+            <div><h3>Integrare rețele<br />sociale și hărți</h3><p>Google Maps, buton WhatsApp, rețele sociale</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: scut pentru securitate și backup. -->
+            <img src="images/icon-securitate-backup-scut-160x160.png" alt="" title="Icon scut pentru securitate și backup — PNG recomandat: 160 × 160 px" />
+            <div><h3>Securitate și<br />backup</h3><p>actualizări, protecție și backup regulat. Tu fără griji.</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: grafic pentru optimizare SEO. -->
+            <img src="images/icon-optimizare-seo-grafic-160x160.png" alt="" title="Icon grafic pentru optimizare SEO — PNG recomandat: 160 × 160 px" />
+            <div><h3>Optimizat SEO</h3><p>pentru o vizibilitate mai bună în Google</p></div>
+          </li>
+          <li class="offer__feature">
+            <!-- Icon recomandat: rotiță pentru administrare ușoară. -->
+            <img src="images/icon-administrare-usoara-setari-160x160.png" alt="" title="Icon rotiță pentru administrare ușoară — PNG recomandat: 160 × 160 px" />
+            <div><h3>Ușor de<br />administrat</h3><p>înveți cum să modifici singur texul și imaginile</p></div>
+          </li>
+        </ul>
+
+        <aside class="offer__closing">
+          <!-- Ilustrație recomandată: inimă coral cu accent mint. -->
+          <img src="images/ilustratie-inima-coral-accent-mint-180x180.png" alt="" title="Ilustrație inimă coral cu accent mint — PNG recomandat: 180 × 180 px" />
+          <p>Totul este creat în jurul identității tale,<br /><strong>cu grijă, consecvență și atenție la detalii.</strong></p>
+        </aside>
       </section>
     </main>
   </body>
