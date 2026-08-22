@@ -11,6 +11,14 @@
       html { scroll-behavior: smooth; }
       body { margin: 0; background: var(--cream); }
       img { max-width: 100%; }
+      section, [id] { scroll-margin-top: 4.5rem; }
+      .site-nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; gap: 1rem; min-height: 4.25rem; padding: .7rem 1.35rem; border-bottom: 1px solid rgba(21, 45, 87, .1); background: rgba(248, 243, 235, .94); backdrop-filter: blur(14px); }
+      .site-nav__brand { display: flex; flex: 0 0 auto; align-items: center; gap: .5rem; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-weight: 700; text-decoration: none; }
+      .site-nav__brand img { width: 2rem; height: 2rem; object-fit: contain; }
+      .site-nav__links { display: flex; flex: 1 1 auto; gap: .35rem; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+      .site-nav__links::-webkit-scrollbar { display: none; }
+      .site-nav__links a { flex: 0 0 auto; padding: .55rem .7rem; border-radius: 999px; color: var(--navy); font-size: .76rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .site-nav__links a:hover, .site-nav__links a:focus-visible { outline: none; background: rgba(145, 184, 172, .25); }
       .hero { position: relative; min-height: 100svh; overflow: hidden; padding: 3.5rem 1.35rem 3rem; isolation: isolate; }
       .hero::before { position: absolute; z-index: -1; top: -8rem; right: -10rem; width: 22rem; height: 30rem; border-radius: 48% 52% 56% 44%; background: rgba(255, 255, 255, .72); content: ""; }
       .hero__content { position: relative; z-index: 1; max-width: 40rem; }
@@ -135,6 +143,12 @@
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
       @media (min-width: 700px) {
+        section, [id] { scroll-margin-top: 5.25rem; }
+        .site-nav { min-height: 5rem; padding: .8rem clamp(3rem, 8vw, 8rem); }
+        .site-nav__brand { font-size: 1.2rem; }
+        .site-nav__brand img { width: 2.35rem; height: 2.35rem; }
+        .site-nav__links { justify-content: flex-end; gap: .5rem; }
+        .site-nav__links a { padding: .65rem .85rem; font-size: .82rem; }
         .hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(26rem, 1.18fr); align-items: center; gap: 2rem; padding: 5rem clamp(3rem, 8vw, 8rem); }
         .hero__content { max-width: 38rem; }
         .eyebrow { margin-bottom: 2.5rem; font-size: .88rem; }
@@ -208,8 +222,22 @@
     </style>
   </head>
   <body>
+    <nav class="site-nav" aria-label="Navigație principală">
+      <a class="site-nav__brand" href="#acasa">
+        <img src="icon/decor-inima-coral-transparent.png" alt="" />
+        <span>Cu grijă</span>
+      </a>
+      <div class="site-nav__links">
+        <a href="#acasa">Acasă</a>
+        <a href="#problema">Problema</a>
+        <a href="#include">Ce includ</a>
+        <a href="#preturi">Prețuri</a>
+        <a href="#administrare">Administrare</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
     <main>
-      <section class="hero" aria-labelledby="hero-title">
+      <section class="hero" id="acasa" aria-labelledby="hero-title">
         <div class="hero__content">
           <p class="eyebrow">Website-uri pentru cei<br />care lucrează cu copii</p>
           <h1 id="hero-title">Un website<br />pe măsura <span>grijii</span><br />pe care o pui în<br />munca ta<span>.</span></h1>
@@ -223,7 +251,7 @@
         <img class="hero__leaf" src="images/decor-ramura-cu-frunze-mint-320x320.png" alt="" title="Ramură decorativă cu frunze în tonuri mint — PNG recomandat: 320 × 320 px" />
       </section>
 
-      <section class="problem" aria-labelledby="problem-title">
+      <section class="problem" id="problema" aria-labelledby="problem-title">
         <div class="problem__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
@@ -274,7 +302,7 @@
         </div>
       </section>
 
-      <section class="offer" aria-labelledby="offer-title">
+      <section class="offer" id="include" aria-labelledby="offer-title">
         <div class="offer__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
@@ -339,7 +367,7 @@
         </aside>
       </section>
 
-      <section class="pricing" aria-labelledby="pricing-title">
+      <section class="pricing" id="preturi" aria-labelledby="pricing-title">
         <div class="pricing__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
@@ -403,7 +431,7 @@
         </aside>
       </section>
 
-      <section class="control" aria-labelledby="control-title">
+      <section class="control" id="administrare" aria-labelledby="control-title">
         <div class="control__topline">
           <!-- Element decorativ: inimă desenată manual, în coral. -->
           <img src="icon/decor-inima-coral-transparent.png" alt="" title="Inimă decorativă coral, fundal transparent — PNG: 1254 × 1254 px" />
@@ -445,7 +473,7 @@
           </aside>
         </div>
 
-        <aside class="contact">
+        <aside class="contact" id="contact">
           <!-- Icon recomandat: WhatsApp alb pe fundal coral. -->
           <img class="contact__whatsapp" src="images/icon-whatsapp-coral-240x240.png" alt="WhatsApp" title="Icon WhatsApp pentru contact — PNG recomandat: 240 × 240 px" />
           <div>
