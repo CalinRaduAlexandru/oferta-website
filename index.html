@@ -108,7 +108,17 @@
       .maintenance__plan { display: flex; flex-direction: column; align-items: center; padding: 0 .7rem; text-align: center; }
       .maintenance__plan + .maintenance__plan { border-left: 1px solid rgba(21, 45, 87, .16); }
       .maintenance__plan img { width: 3.5rem; height: 3.5rem; margin-bottom: .75rem; object-fit: contain; }
-      .maintenance__plan--featured img { width: 100%; height: auto; max-width: 24rem; margin: -.5rem auto; object-fit: contain; }
+      .maintenance-card { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; min-height: 18rem; padding: 1.25rem 1rem 1rem; border: 2px solid rgba(145, 184, 172, .68); border-radius: 1.5rem; background: rgba(251, 250, 244, .72); text-align: center; }
+      .maintenance-card__badge { align-self: flex-end; padding: .4rem .8rem; border-radius: 999px; background: rgba(145, 184, 172, .18); color: #397867; font-family: Georgia, "Times New Roman", serif; font-size: .85rem; }
+      .maintenance-card__icon { width: 4.5rem; height: 4.5rem; margin: .35rem 0 .45rem; object-fit: contain; }
+      .maintenance-card__price { display: flex; align-items: baseline; gap: .4rem; margin: 0; color: #3e8975; font-family: Georgia, "Times New Roman", serif; }
+      .maintenance-card__price strong { font-size: clamp(2.8rem, 7vw, 4.4rem); line-height: .95; }
+      .maintenance-card__price span { color: var(--navy); font-family: Arial, Helvetica, sans-serif; font-size: 1rem; }
+      .maintenance-card__divider { display: flex; align-items: center; gap: .7rem; width: 75%; margin: .8rem 0 .45rem; color: #bad0c0; }
+      .maintenance-card__divider::before, .maintenance-card__divider::after { flex: 1; height: 1px; background: rgba(145, 184, 172, .45); content: ""; }
+      .maintenance-card__divider::before { box-shadow: 0 0 0 2px rgba(145, 184, 172, .08); }
+      .maintenance-card__advance { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; }
+      .maintenance-card__saving { margin: .85rem 0 0; padding: .5rem 1rem; border-radius: 999px; background: rgba(145, 184, 172, .16); color: #397867; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; }
       .maintenance__price { margin: 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.8rem; font-weight: 700; }
       .maintenance__price span { color: var(--navy); font-family: Arial, sans-serif; font-size: 1rem; font-weight: 400; }
       .maintenance__detail { margin: .35rem 0 0; font-size: .92rem; line-height: 1.35; }
@@ -259,7 +269,6 @@
         .pricing__photo { grid-column: 2; grid-row: 1 / span 2; height: 42rem; min-height: 0; margin: 0; border-radius: 50% 50% 3rem 2rem; }
         .pricing__intro { grid-column: 1; grid-row: 1; }
         .maintenance { grid-column: 1; grid-row: 2; padding: 2rem; }
-        .maintenance__plan--featured img { max-width: 22rem; }
         .pricing__promise { grid-column: 2; grid-row: 3; margin-top: -10rem; }
         .pricing__divider { margin-top: 5rem; font-size: 1.35rem; }
         .aftercare { grid-template-columns: 1fr 1fr; }
@@ -483,7 +492,14 @@
                 <p class="maintenance__detail">plată anuală</p>
               </div>
               <div class="maintenance__plan maintenance__plan--featured">
-                <img loading="lazy" decoding="async" src="icon/oferta-card.png" alt="Oferta recomandată: 2.000 lei pentru 5 ani, plată în avans, cu o economie de 500 lei" title="Card ofertă recomandată — PNG: 1448 × 1086 px" />
+                <div class="maintenance-card">
+                  <span class="maintenance-card__badge">Recomandat</span>
+                  <img class="maintenance-card__icon" src="icon/icon-securitate-cu-inima.png" alt="" />
+                  <p class="maintenance-card__price"><strong>2.000</strong><span>lei / 5 ani</span></p>
+                  <div class="maintenance-card__divider" aria-hidden="true"><span>•</span></div>
+                  <p class="maintenance-card__advance">plată în avans</p>
+                  <p class="maintenance-card__saving">Economisești 500 lei.</p>
+                </div>
               </div>
             </div>
             <p class="pricing__note"><img loading="lazy" decoding="async" src="icon/decor-asterisc-mint.png" alt="" title="Asterisc decorativ mint — PNG: 1254 × 1254 px" /> <span>Include domeniu, hosting, mentenanță tehnică, update-uri, backup și asistență.</span></p>
