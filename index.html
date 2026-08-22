@@ -158,7 +158,15 @@
       .contact__message { display: flex; align-items: center; gap: .8rem; }
       .contact__message-leaf { width: 3.5rem; height: 3.5rem; object-fit: contain; }
       .contact__message strong { color: #6c9f91; }
-      .contact__laptop { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; }
+      .contact__laptop-link { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; cursor: pointer; }
+      .contact__laptop { display: block; width: 100%; height: 100%; min-height: 11rem; object-fit: contain; }
+      @keyframes contactLaptopAttention {
+        0% { transform: translateY(0) rotate(0) scale(1); }
+        45% { transform: translateY(-7px) rotate(-2deg) scale(1.04); filter: drop-shadow(0 10px 12px rgba(44, 124, 108, .18)); }
+        100% { transform: translateY(0) rotate(0) scale(1); }
+      }
+      .contact__laptop-link:hover .contact__laptop { animation: contactLaptopAttention .7s ease-in-out 1; }
+      .contact__laptop-link.is-animating .contact__laptop { animation: contactLaptopAttention .5s ease-in-out 1; }
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
       @media (min-width: 700px) {
@@ -241,7 +249,8 @@
         .contact h2 { font-size: clamp(2.8rem, 4vw, 4.5rem); }
         .contact p { font-size: 1.25rem; }
         .contact__cta strong { font-size: 2.1rem; }
-        .contact__laptop { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
+        .contact__laptop-link { grid-column: 2; grid-row: 1; width: min(100%, 25rem); min-height: 17rem; }
+        .contact__laptop { min-height: 17rem; }
         .contact__leaf { display: block; top: -1rem; right: 1rem; width: 9rem; height: 9rem; }
         .contact__message-leaf { width: 4.5rem; height: 4.5rem; }
         .contact-section { padding: 5rem clamp(3rem, 8vw, 8rem) 4rem; border-top: 0; }
@@ -524,7 +533,9 @@
             </div>
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
-          <img class="contact__laptop" src="icon/ilustratie-laptop-cu-inima.png" alt="Laptop decorativ cu inimă" title="Ilustrație laptop cu inimă și accente mint — PNG: 366 × 342 px" />
+          <a class="contact__laptop-link" href="https://wa.me/40742804731" aria-label="Deschide conversația WhatsApp din ilustrația laptopului">
+            <img class="contact__laptop" src="icon/ilustratie-laptop-cu-inima.png" alt="Laptop decorativ cu inimă" title="Ilustrație laptop cu inimă și accente mint — PNG: 366 × 342 px" />
+          </a>
         </aside>
 
         <p class="control__footer"><span>♡</span> &nbsp; Cu grijă pentru oameni mici și mari.</p>
@@ -588,6 +599,15 @@
       updateUpcomingSection();
       siteNav.classList.remove("site-nav--initializing");
       window.addEventListener("resize", () => moveIndicator(linkFor.get(activeId)));
+
+      document.querySelectorAll(".contact__laptop-link").forEach((laptopLink) => {
+        laptopLink.addEventListener("click", (event) => {
+          event.preventDefault();
+          if (laptopLink.classList.contains("is-animating")) return;
+          laptopLink.classList.add("is-animating");
+          window.setTimeout(() => { window.location.href = laptopLink.href; }, 500);
+        });
+      });
     </script>
   </body>
 </html>
