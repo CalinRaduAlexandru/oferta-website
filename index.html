@@ -158,9 +158,11 @@
       .contact__message { display: flex; align-items: center; gap: .8rem; }
       .contact__message-leaf { width: 3.5rem; height: 3.5rem; object-fit: contain; }
       .contact__message strong { color: #6c9f91; }
-      .contact__laptop { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; mix-blend-mode: screen; }
+      .contact__laptop { position: relative; z-index: 2; display: block; justify-self: center; width: min(100%, 18rem); min-height: 11rem; object-fit: contain; }
+      .contact__laptop--fallback { mix-blend-mode: screen; }
       .contact__laptop { grid-column: 1; grid-row: 2; }
-      .contact__video-cover { position: relative; z-index: 3; grid-column: 1; grid-row: 2; justify-self: center; align-self: start; width: min(100%, 18rem); height: 2.5rem; pointer-events: none; }
+      .contact__video-cover { position: relative; z-index: 3; display: none; grid-column: 1; grid-row: 2; justify-self: center; align-self: start; width: min(100%, 18rem); height: 2.5rem; pointer-events: none; }
+      .contact__laptop--fallback + .contact__video-cover { display: block; }
       .contact__video-cover::after { position: absolute; top: .35rem; right: .35rem; width: 4.5rem; height: 1.8rem; border-radius: .35rem; background: #fbf7ef; content: ""; }
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
@@ -533,7 +535,8 @@
             </div>
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
-          <video class="contact__laptop" muted playsinline preload="metadata" aria-label="Animație cu laptop decorativ și inimă">
+          <video class="contact__laptop" muted playsinline preload="auto" poster="icon/poster-laptop-inima-contact-transparent.png" aria-label="Animație cu laptop decorativ și inimă">
+            <source src="icon/animatie-laptop-inima-contact-transparent.webm" type="video/webm; codecs=vp9" />
             <source src="icon/animatie-laptop-inima-contact.mp4" type="video/mp4" />
           </video>
           <span class="contact__video-cover" aria-hidden="true"></span>
@@ -604,16 +607,19 @@
       const contactVideo = document.querySelector(".contact__laptop");
       let contactVideoStarted = false;
 
+      if (contactVideo && !contactVideo.canPlayType('video/webm; codecs="vp9"')) {
+        contactVideo.classList.add("contact__laptop--fallback");
+      }
+
       const playContactVideo = () => {
         if (!contactVideo || contactVideoStarted) return;
         contactVideoStarted = true;
         contactVideo.currentTime = 0;
-        contactVideo.play().catch(() => {});
+        contactVideo.play().catch(() => { contactVideoStarted = false; });
       };
 
       contactVideo?.addEventListener("ended", () => {
         contactVideo.pause();
-        if (Number.isFinite(contactVideo.duration)) contactVideo.currentTime = contactVideo.duration;
       });
 
       document.querySelectorAll(".contact__cta").forEach((whatsappCta) => {
