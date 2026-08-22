@@ -138,18 +138,17 @@
       .control__promise img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .control__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; line-height: 1.15; }
       .control__promise strong { color: #6c9f91; }
-      .contact { position: relative; display: grid; gap: 1rem; padding: 1.5rem; border: 1px solid #efb5a6; border-radius: 1.75rem; background: #fff0e9; }
-      .contact__whatsapp { display: block; width: 5rem; height: 5rem; object-fit: contain; }
-      .contact h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; line-height: 1.1; }
+      .contact { display: grid; gap: .9rem; padding: 1.35rem; border: 1px solid rgba(145, 184, 172, .65); border-radius: 1.75rem; background: rgba(255, 255, 255, .55); box-shadow: 0 12px 30px rgba(21, 45, 87, .06); }
+      .contact__whatsapp { display: block; width: 4.25rem; height: 4.25rem; object-fit: contain; }
+      .contact h2 { max-width: 26rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; line-height: 1.1; }
       .contact h2 span { color: var(--coral); }
-      .contact p { margin: 0; font-size: 1.08rem; line-height: 1.45; }
-      .contact__cta { display: inline-flex; align-items: center; justify-content: center; gap: .35rem; width: fit-content; margin: .65rem 0 .25rem; padding: .8rem 1.2rem; border-radius: 999px; background: var(--coral); box-shadow: 0 8px 20px rgba(237, 121, 95, .25); color: #fff; font-size: 1rem; font-weight: 700; line-height: 1.15; text-align: center; text-decoration: none; transition: transform .35s ease-in-out, box-shadow .35s ease-in-out, background-color .35s ease-in-out; }
-      .contact__cta span { font-size: .85rem; }
-      .contact__cta strong { font-size: 1.2rem; letter-spacing: .02em; }
-      .contact__cta:hover, .contact__cta:focus-visible { background: #d9634c; box-shadow: 0 11px 24px rgba(237, 121, 95, .35); outline: none; transform: translateY(-2px); }
-      .contact__line { width: 100%; height: .2rem; margin: .25rem 0; border-radius: 100%; background: var(--mint); }
-      .contact__laptop { display: block; width: 100%; min-height: 8rem; object-fit: contain; }
-      .contact__hearts { position: absolute; top: .7rem; right: .7rem; width: 3.25rem; height: 3.25rem; object-fit: contain; opacity: .85; }
+      .contact p { margin: 0; font-size: 1rem; line-height: 1.45; }
+      .contact__cta { display: inline-flex; flex-direction: column; align-items: flex-start; gap: .1rem; width: fit-content; margin: .65rem 0 .35rem; padding: 0 0 .3rem; border-bottom: 2px solid var(--coral); color: var(--navy); line-height: 1.15; text-decoration: none; transition: color .3s ease-in-out, border-color .3s ease-in-out, transform .3s ease-in-out; }
+      .contact__cta span { color: var(--coral); font-size: .92rem; font-weight: 700; }
+      .contact__cta strong { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; letter-spacing: .02em; }
+      .contact__cta:hover, .contact__cta:focus-visible { border-color: var(--mint); color: #6c9f91; outline: none; transform: translateX(3px); }
+      .contact__line { width: min(100%, 11rem); height: 2px; margin: .15rem 0 .55rem; border-radius: 100%; background: var(--mint); }
+      .contact__laptop { display: block; justify-self: end; width: 10rem; min-height: 6rem; object-fit: contain; }
       .control__footer { margin: 2rem 0 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.15rem; text-align: center; }
       .control__footer span { color: #6c9f91; font-size: 1.6rem; }
       @media (min-width: 700px) {
@@ -222,14 +221,12 @@
         .control__benefit { grid-template-columns: 5rem 1fr; min-height: 9rem; }
         .control__benefit img { width: 4.5rem; height: 4.5rem; }
         .control__promise { grid-column: 2; grid-row: 2; margin: -8rem 0 0; padding: 2rem; }
-        .contact { grid-template-columns: 7rem 1fr 17rem; align-items: center; padding: 2.5rem 3rem; }
-        .contact__whatsapp { width: 6rem; height: 6rem; }
-        .contact h2 { font-size: 2rem; }
+        .contact { grid-template-columns: 6rem 1fr 15rem; align-items: center; padding: 2rem 2.5rem; }
+        .contact__whatsapp { width: 5rem; height: 5rem; }
+        .contact h2 { font-size: 1.9rem; }
         .contact p { font-size: 1.2rem; }
-        .contact__cta { padding: .9rem 1.4rem; }
-        .contact__cta strong { font-size: 1.35rem; }
-        .contact__laptop { min-height: 12rem; }
-        .contact__hearts { top: 1rem; right: 1rem; width: 5rem; height: 5rem; }
+        .contact__cta strong { font-size: 1.5rem; }
+        .contact__laptop { width: 13rem; min-height: 10rem; }
         .control__footer { margin-top: 2.5rem; font-size: 1.3rem; }
       }
     </style>
@@ -499,8 +496,6 @@
           </div>
           <!-- Ilustrație recomandată: laptop cu inimă și raze mint. -->
           <img class="contact__laptop" src="icon/ilustratie-laptop-cu-inima.png" alt="Laptop decorativ cu inimă" title="Ilustrație laptop cu inimă și accente mint — PNG: 366 × 342 px" />
-          <!-- Decorațiune: două inimioare mov. -->
-          <img class="contact__hearts" src="icon/decor-inimioare-mov.png" alt="" title="Două inimioare decorative mov — PNG: 1254 × 1254 px" />
         </aside>
 
         <p class="control__footer"><span>♡</span> &nbsp; Cu grijă pentru oameni mici și mari.</p>
