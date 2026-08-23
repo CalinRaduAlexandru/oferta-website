@@ -676,10 +676,12 @@
       const updateUpcomingSection = () => {
         const navHeight = document.querySelector(".site-nav").offsetHeight;
         const navbarBottom = navHeight + 4;
+        const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+        const activationLine = Math.max(navbarBottom, rootFontSize * 5.25);
 
         if (pendingSectionId) {
           const pendingSection = document.getElementById(pendingSectionId);
-          if (pendingSection && pendingSection.getBoundingClientRect().top > navbarBottom + 8) {
+          if (pendingSection && pendingSection.getBoundingClientRect().top > activationLine + 8) {
             ticking = false;
             return;
           }
@@ -689,7 +691,7 @@
         let upcoming = sections[0];
 
         sections.forEach((section) => {
-          if (section.getBoundingClientRect().top <= navbarBottom) upcoming = section;
+          if (section.getBoundingClientRect().top <= activationLine) upcoming = section;
         });
 
         const contact = document.getElementById("contact");
