@@ -115,9 +115,10 @@
       .pricing__photo { display: block; width: 100%; min-height: 20rem; margin: 2.5rem 0; border-radius: 50% 50% 2rem 1.25rem; object-fit: cover; }
       .maintenance { padding: 1.5rem; border: 1px solid rgba(145, 184, 172, .6); border-radius: 2rem; background: rgba(255, 255, 255, .35); }
       .maintenance h3 { margin: 0 0 1.5rem; color: #4d8176; font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; letter-spacing: .04em; text-align: center; text-transform: uppercase; }
-      .maintenance__plans { display: grid; grid-template-columns: 1fr 1fr; }
+      .maintenance__plans { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .55rem; align-items: stretch; }
       .maintenance__plan { display: flex; flex-direction: column; align-items: center; padding: 0 .7rem; text-align: center; }
-      .maintenance__plan + .maintenance__plan { border-left: 1px solid rgba(21, 45, 87, .16); }
+      .maintenance__plan--package { justify-content: center; padding: 1.25rem .8rem; border: 1px solid rgba(145, 184, 172, .6); border-radius: 1.5rem; background: rgba(251, 250, 244, .72); }
+      .maintenance__plus { display: flex; align-items: center; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 2.4rem; }
       .maintenance__plan img { width: 3.5rem; height: 3.5rem; margin-bottom: .75rem; object-fit: contain; }
       .maintenance-card { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; min-height: 18rem; padding: 1.25rem 1rem 1rem; border: 2px solid rgba(145, 184, 172, .68); border-radius: 1.5rem; background: rgba(251, 250, 244, .72); text-align: center; }
       .maintenance-card__badge { align-self: flex-end; padding: .4rem .8rem; border-radius: 999px; background: rgba(145, 184, 172, .18); color: #397867; font-family: Georgia, "Times New Roman", serif; font-size: .85rem; }
@@ -133,14 +134,16 @@
       .maintenance__price { margin: 0; color: #6c9f91; font-family: Georgia, "Times New Roman", serif; font-size: 1.8rem; font-weight: 700; }
       .maintenance__price span { color: var(--navy); font-family: Arial, sans-serif; font-size: 1rem; font-weight: 400; }
       .maintenance__detail { margin: .35rem 0 0; font-size: .92rem; line-height: 1.35; }
+      .maintenance__detail strong { display: block; margin-bottom: .2rem; color: var(--navy); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; }
       .maintenance__detail span { color: #6c9f91; font-weight: 700; }
       @media (max-width: 1099px) {
         h1 { line-height: 1.04; }
         .problem__heading, .offer__heading, .pricing__heading, .control__heading, .contact h2 { line-height: 1.05; }
         .hero__brand-line { margin-bottom: 12px; }
         .control__heading .control__question + .control__question { margin-top: .28em; }
-        .maintenance__plan:first-child { grid-column: 1 / -1; justify-content: center; width: 100%; padding-bottom: 1rem; }
-        .maintenance__plan--featured { grid-column: 1 / -1; justify-content: center; width: 100%; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(21, 45, 87, .16); border-left: 0; }
+        .maintenance__plans { grid-template-columns: 1fr; gap: .75rem; }
+        .maintenance__plan--package { width: 100%; }
+        .maintenance__plus { justify-content: center; height: 1.5rem; }
         .offer__closing { margin-bottom: -1rem; }
         .problem__callout { justify-items: center; gap: 1.15rem; padding: 1.5rem 1.25rem 1.75rem; background: rgba(231, 243, 238, .58); }
         .problem__callout img { width: 5.25rem; height: 5.25rem; margin: 0; }
@@ -287,10 +290,8 @@
         .pricing__photo { grid-column: 2; grid-row: 1 / span 2; height: 42rem; min-height: 0; margin: 0; border-radius: 50% 50% 3rem 2rem; }
         .pricing__intro { grid-column: 1; grid-row: 1; }
         .maintenance { grid-column: 1; grid-row: 2; padding: 2rem; }
-        .maintenance__plans { grid-template-columns: minmax(11rem, .82fr) minmax(17rem, 1.18fr); align-items: stretch; }
-        .maintenance__plan:first-child { justify-content: center; }
-        .maintenance__plan--featured { padding-left: 1.25rem; }
-        .maintenance-card { min-height: 100%; padding: 1.35rem .8rem 1rem; }
+        .maintenance__plans { grid-template-columns: minmax(11rem, 1fr) auto minmax(11rem, 1fr); align-items: stretch; }
+        .maintenance__plan--package { padding-right: 1.25rem; padding-left: 1.25rem; }
         .maintenance-card__price { gap: .2rem; }
         .maintenance-card__price strong { font-size: clamp(2.5rem, 4vw, 3.8rem); }
         .maintenance-card__price span { font-size: .9rem; }
@@ -512,23 +513,19 @@
           <div class="maintenance">
             <h3>Costuri clare, de la început</h3>
             <div class="maintenance__plans">
-              <div class="maintenance__plan">
+              <div class="maintenance__plan maintenance__plan--package">
                 <img loading="lazy" decoding="async" src="icon/icon-document-cu-creion.webp" alt="" title="Icon document pentru realizarea site-ului, WebP: 1254 × 1254 px" />
                 <p class="maintenance__price">1.000 <span>lei</span></p>
-                <p class="maintenance__detail">site + primul an de mentenanță</p>
+                <p class="maintenance__detail"><strong>Realizarea site-ului</strong>primul an de mentenanță inclus</p>
               </div>
-              <div class="maintenance__plan maintenance__plan--featured">
-                <div class="maintenance-card">
-                  <span class="maintenance-card__badge">Din anul 2</span>
-                  <img class="maintenance-card__icon" src="icon/icon-securitate-cu-inima.webp" alt="" />
-                  <p class="maintenance-card__price"><strong>500</strong><span>lei / an</span></p>
-                  <div class="maintenance-card__divider" aria-hidden="true"><span>•</span></div>
-                  <p class="maintenance-card__advance">mentenanță anuală</p>
-                  <p class="maintenance-card__saving">Plătești doar dacă vrei să continui.</p>
-                </div>
+              <span class="maintenance__plus" aria-hidden="true">+</span>
+              <div class="maintenance__plan maintenance__plan--package">
+                <img loading="lazy" decoding="async" src="icon/icon-securitate-cu-inima.webp" alt="" title="Icon pentru mentenanța tehnică, WebP: 1254 × 1254 px" />
+                <p class="maintenance__price">500 <span>lei / an</span></p>
+                <p class="maintenance__detail"><strong>Din anul 2</strong>mentenanță tehnică pentru site-ul tău</p>
               </div>
             </div>
-            <p class="pricing__note"><img loading="lazy" decoding="async" src="icon/decor-asterisc-mint.webp" alt="" title="Asterisc decorativ mint, WebP: 1254 × 1254 px" /> <span>În cost intră domeniul (adresa site-ului), hostingul (spațiul în care site-ul este păstrat online), actualizările tehnice, backupul (copii de siguranță) și ajutorul meu atunci când ai nevoie.</span></p>
+            <p class="pricing__note"><img loading="lazy" decoding="async" src="icon/decor-asterisc-mint.webp" alt="" title="Asterisc decorativ mint, WebP: 1254 × 1254 px" /> <span>În cost intră domeniul (adresa site-ului), hostingul (spațiul în care site-ul este păstrat online), actualizările tehnice, backupul (copii de siguranță) și ghidarea mea atunci când ai nevoie.</span></p>
             <p class="pricing__model">Rămâi liber să alegi dacă vrei să continui mentenanța după primul an. Intervențiile suplimentare se stabilesc separat, în funcție de complexitate.</p>
           </div>
 
