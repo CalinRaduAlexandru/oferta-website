@@ -141,6 +141,7 @@
         .problem__heading, .offer__heading, .pricing__heading, .control__heading, .contact h2 { line-height: 1.05; }
         .hero__brand-line { margin-bottom: 12px; }
         .control__heading .control__question + .control__question { margin-top: .28em; }
+        .control__promise-break { display: inline; }
         .maintenance__plans { grid-template-columns: 1fr; gap: .75rem; }
         .maintenance__plan--package { width: 100%; }
         .maintenance__plus { justify-content: center; height: 1.5rem; }
@@ -194,6 +195,7 @@
       .control__promise img { width: 3.75rem; height: 3.75rem; object-fit: contain; }
       .control__promise p { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1.45rem; line-height: 1.15; }
       .control__promise strong { color: #6c9f91; }
+      .control__promise-break { display: none; }
       .contact-section { --section-color: #6c9f91; position: relative; overflow: hidden; padding: 3rem 1.35rem 2.5rem; border-top: 0; background: var(--cream); }
       .contact { position: relative; display: grid; gap: 1.5rem; overflow: hidden; padding: 2.2rem 1.35rem 1.5rem; border: 1px solid rgba(145, 184, 172, .38); border-radius: 2rem; background: #fbf7ef; box-shadow: 0 16px 35px rgba(21, 45, 87, .12); }
       .contact::before { position: absolute; top: -5rem; left: -4rem; width: 12rem; height: 11rem; border-radius: 50%; background: rgba(145, 184, 172, .12); content: ""; }
@@ -595,7 +597,7 @@
             <aside class="control__promise">
             <!-- Element decorativ: ramură fină în tonuri mint. -->
             <img loading="lazy" decoding="async" src="icon/decor-ramura-frunze-mint-scurta.webp" alt="" title="Ramură decorativă scurtă cu frunze în tonuri mint, WebP: 1254 × 1254 px" />
-            <p><strong>Site-ul tău. Controlul tău.</strong><br />Eu rămân aproape doar când ai nevoie de mine.</p>
+            <p><strong>Site-ul tău.<span class="control__promise-break"><br /></span> Controlul tău.</strong><br />Eu rămân aproape doar când ai nevoie de mine.</p>
             </aside>
           </div>
           <!-- Fotografie recomandată: persoană care editează un website pe laptop. -->
