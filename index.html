@@ -24,7 +24,7 @@
       html { scroll-behavior: smooth; }
       body { margin: 0; background: var(--cream); }
       img { max-width: 100%; }
-      section, [id] { scroll-margin-top: 4.5rem; }
+      section, [id] { scroll-margin-top: 5.25rem; }
       section { position: relative; border-top: 0; }
       .problem::after, .offer::after, .pricing::after, .control::after { position: absolute; right: -8%; bottom: -10rem; left: -8%; z-index: 0; height: 14rem; border-radius: 50% 50% 0 0 / 38% 38% 0 0; background: color-mix(in srgb, var(--section-color) 13%, transparent); content: ""; pointer-events: none; }
       .problem > *, .offer > *, .pricing > *, .control > *, .contact-section > * { position: relative; z-index: 1; }
@@ -638,6 +638,8 @@
       const sectionLine = document.querySelector(".site-nav__section-line");
       const siteNav = document.querySelector(".site-nav");
       let activeId = "";
+      let pendingSectionId = "";
+      let pendingSectionTimer = 0;
 
       const moveIndicator = (link) => {
         if (!link || !indicator) return;
@@ -660,13 +662,30 @@
       };
 
       links.forEach((link) => {
-        link.addEventListener("click", () => activateSection(link.getAttribute("href").slice(1)));
+        link.addEventListener("click", () => {
+          pendingSectionId = link.getAttribute("href").slice(1);
+          window.clearTimeout(pendingSectionTimer);
+          pendingSectionTimer = window.setTimeout(() => {
+            pendingSectionId = "";
+          }, 1400);
+          activateSection(pendingSectionId);
+        });
       });
 
       let ticking = false;
       const updateUpcomingSection = () => {
         const navHeight = document.querySelector(".site-nav").offsetHeight;
         const navbarBottom = navHeight + 4;
+
+        if (pendingSectionId) {
+          const pendingSection = document.getElementById(pendingSectionId);
+          if (pendingSection && pendingSection.getBoundingClientRect().top > navbarBottom + 8) {
+            ticking = false;
+            return;
+          }
+          pendingSectionId = "";
+        }
+
         let upcoming = sections[0];
 
         sections.forEach((section) => {
